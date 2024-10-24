@@ -1,10 +1,10 @@
-import { ClientComponent } from "@/components/ClientComponent";
+import { KanaPicker } from "@/components/kana-picker";
 
 export default function Home() {
   return (
     <div>
       <main>
-        <ClientComponent />
+        <KanaPicker />
       </main>
     </div>
   );

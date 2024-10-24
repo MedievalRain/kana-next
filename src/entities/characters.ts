@@ -3,7 +3,7 @@ export type Character = {
   romaji: string;
 };
 
-export const hiraganaColumns: Character[][] = [
+export const hiraganaColumns: (Character | null)[][] = [
   // First column (Vowels)
   [
     { kana: "あ", romaji: "a" },
@@ -63,7 +63,9 @@ export const hiraganaColumns: Character[][] = [
   // Eighth column (Y)
   [
     { kana: "や", romaji: "ya" },
+    null,
     { kana: "ゆ", romaji: "yu" },
+    null,
     { kana: "よ", romaji: "yo" },
   ],
   // Ninth column (R)
@@ -77,8 +79,11 @@ export const hiraganaColumns: Character[][] = [
   // Tenth column (W)
   [
     { kana: "わ", romaji: "wa" },
+    null,
+    null,
+    null,
     { kana: "を", romaji: "wo" },
   ],
   // Eleventh column (N)
-  [{ kana: "ん", romaji: "n" }],
+  [null, null, null, null, { kana: "ん", romaji: "n" }],
 ];
