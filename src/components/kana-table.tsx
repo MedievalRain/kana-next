@@ -47,13 +47,13 @@ export const KanaTable = ({ columns }: { columns: (Character | null)[][] }) => {
         <tr>
           {columns.map((_, columnIndex) => (
             <th
-              className="border border-background-300 bg-background-200 p-2 text-center"
+              className="border border-background-300 bg-background-200 text-center"
               key={columnIndex}
             >
               <label className="block">
                 <input
                   checked={selectedColumns[columnIndex]}
-                  className="text-blue-600"
+                  className="m-2 text-blue-600"
                   onChange={() => toggleColumn(columnIndex)}
                   type="checkbox"
                 />
