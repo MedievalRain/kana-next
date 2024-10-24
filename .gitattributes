@@ -1,0 +1,5 @@
+*.woff2 binary
+*.ttf binary
+*.webp binary
+package-lock.json binary
+src/routeTree.gen.ts binary
