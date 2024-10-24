@@ -7,7 +7,7 @@ export const ClientComponent = () => {
   const [state, setState] = useState("TEST");
   return (
     <div>
-      <Link href="/">{state}</Link>
+      <Link href="/">{state}ありがとう</Link>
     </div>
   );
 };
