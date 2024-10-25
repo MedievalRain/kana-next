@@ -11,7 +11,7 @@ export type Character = {
   romaji: string;
   row: number;
   type: KanaType;
-  weight: number; // defaults to 0
+  weight: number; // defaults to 1
 };
 
 export const kanas: Character[] = [
@@ -22,7 +22,7 @@ export const kanas: Character[] = [
     romaji: "a",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -31,7 +31,7 @@ export const kanas: Character[] = [
     romaji: "i",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -40,7 +40,7 @@ export const kanas: Character[] = [
     romaji: "u",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -49,7 +49,7 @@ export const kanas: Character[] = [
     romaji: "e",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -58,7 +58,7 @@ export const kanas: Character[] = [
     romaji: "o",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -67,7 +67,7 @@ export const kanas: Character[] = [
     romaji: "ka",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -76,7 +76,7 @@ export const kanas: Character[] = [
     romaji: "ki",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -85,7 +85,7 @@ export const kanas: Character[] = [
     romaji: "ku",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -94,7 +94,7 @@ export const kanas: Character[] = [
     romaji: "ke",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -103,7 +103,7 @@ export const kanas: Character[] = [
     romaji: "ko",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -112,7 +112,7 @@ export const kanas: Character[] = [
     romaji: "sa",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -121,7 +121,7 @@ export const kanas: Character[] = [
     romaji: "shi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -130,7 +130,7 @@ export const kanas: Character[] = [
     romaji: "su",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -139,7 +139,7 @@ export const kanas: Character[] = [
     romaji: "se",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -148,7 +148,7 @@ export const kanas: Character[] = [
     romaji: "so",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -157,7 +157,7 @@ export const kanas: Character[] = [
     romaji: "ta",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -166,7 +166,7 @@ export const kanas: Character[] = [
     romaji: "chi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -175,7 +175,7 @@ export const kanas: Character[] = [
     romaji: "tsu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -184,7 +184,7 @@ export const kanas: Character[] = [
     romaji: "te",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -193,7 +193,7 @@ export const kanas: Character[] = [
     romaji: "to",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -202,7 +202,7 @@ export const kanas: Character[] = [
     romaji: "na",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -211,7 +211,7 @@ export const kanas: Character[] = [
     romaji: "ni",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -220,7 +220,7 @@ export const kanas: Character[] = [
     romaji: "nu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -229,7 +229,7 @@ export const kanas: Character[] = [
     romaji: "ne",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -238,7 +238,7 @@ export const kanas: Character[] = [
     romaji: "no",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -247,7 +247,7 @@ export const kanas: Character[] = [
     romaji: "ha",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -256,7 +256,7 @@ export const kanas: Character[] = [
     romaji: "hi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -265,7 +265,7 @@ export const kanas: Character[] = [
     romaji: "fu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -274,7 +274,7 @@ export const kanas: Character[] = [
     romaji: "he",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -283,7 +283,7 @@ export const kanas: Character[] = [
     romaji: "ho",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -292,7 +292,7 @@ export const kanas: Character[] = [
     romaji: "ma",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -301,7 +301,7 @@ export const kanas: Character[] = [
     romaji: "mi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -310,7 +310,7 @@ export const kanas: Character[] = [
     romaji: "mu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -319,7 +319,7 @@ export const kanas: Character[] = [
     romaji: "me",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -328,7 +328,7 @@ export const kanas: Character[] = [
     romaji: "mo",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -337,7 +337,7 @@ export const kanas: Character[] = [
     romaji: "ya",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -346,7 +346,7 @@ export const kanas: Character[] = [
     romaji: "yu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -355,7 +355,7 @@ export const kanas: Character[] = [
     romaji: "yo",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -364,7 +364,7 @@ export const kanas: Character[] = [
     romaji: "ra",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -373,7 +373,7 @@ export const kanas: Character[] = [
     romaji: "ri",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -382,7 +382,7 @@ export const kanas: Character[] = [
     romaji: "ru",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -391,7 +391,7 @@ export const kanas: Character[] = [
     romaji: "re",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -400,7 +400,7 @@ export const kanas: Character[] = [
     romaji: "ro",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -409,7 +409,7 @@ export const kanas: Character[] = [
     romaji: "wa",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -418,7 +418,7 @@ export const kanas: Character[] = [
     romaji: "wo",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -427,7 +427,7 @@ export const kanas: Character[] = [
     romaji: "n",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -436,7 +436,7 @@ export const kanas: Character[] = [
     romaji: "ga",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -445,7 +445,7 @@ export const kanas: Character[] = [
     romaji: "gi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -454,7 +454,7 @@ export const kanas: Character[] = [
     romaji: "gu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -463,7 +463,7 @@ export const kanas: Character[] = [
     romaji: "ge",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -472,7 +472,7 @@ export const kanas: Character[] = [
     romaji: "go",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -481,7 +481,7 @@ export const kanas: Character[] = [
     romaji: "za",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -490,7 +490,7 @@ export const kanas: Character[] = [
     romaji: "ji",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -499,7 +499,7 @@ export const kanas: Character[] = [
     romaji: "zu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -508,7 +508,7 @@ export const kanas: Character[] = [
     romaji: "ze",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -517,7 +517,7 @@ export const kanas: Character[] = [
     romaji: "zo",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -526,7 +526,7 @@ export const kanas: Character[] = [
     romaji: "da",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -535,7 +535,7 @@ export const kanas: Character[] = [
     romaji: "ji",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -544,7 +544,7 @@ export const kanas: Character[] = [
     romaji: "zu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -553,7 +553,7 @@ export const kanas: Character[] = [
     romaji: "de",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -562,7 +562,7 @@ export const kanas: Character[] = [
     romaji: "do",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -571,7 +571,7 @@ export const kanas: Character[] = [
     romaji: "ba",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -580,7 +580,7 @@ export const kanas: Character[] = [
     romaji: "bi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -589,7 +589,7 @@ export const kanas: Character[] = [
     romaji: "bu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -598,7 +598,7 @@ export const kanas: Character[] = [
     romaji: "be",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -607,7 +607,7 @@ export const kanas: Character[] = [
     romaji: "bo",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -616,7 +616,7 @@ export const kanas: Character[] = [
     romaji: "pa",
     row: 0,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -625,7 +625,7 @@ export const kanas: Character[] = [
     romaji: "pi",
     row: 1,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -634,7 +634,7 @@ export const kanas: Character[] = [
     romaji: "pu",
     row: 2,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -643,7 +643,7 @@ export const kanas: Character[] = [
     romaji: "pe",
     row: 3,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -652,7 +652,7 @@ export const kanas: Character[] = [
     romaji: "po",
     row: 4,
     type: "hiragana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -661,7 +661,7 @@ export const kanas: Character[] = [
     romaji: "kya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -670,7 +670,7 @@ export const kanas: Character[] = [
     romaji: "kyu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -679,7 +679,7 @@ export const kanas: Character[] = [
     romaji: "kyo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -688,7 +688,7 @@ export const kanas: Character[] = [
     romaji: "sha",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -697,7 +697,7 @@ export const kanas: Character[] = [
     romaji: "shu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -706,7 +706,7 @@ export const kanas: Character[] = [
     romaji: "sho",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -715,7 +715,7 @@ export const kanas: Character[] = [
     romaji: "cha",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -724,7 +724,7 @@ export const kanas: Character[] = [
     romaji: "chu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -733,7 +733,7 @@ export const kanas: Character[] = [
     romaji: "cho",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -742,7 +742,7 @@ export const kanas: Character[] = [
     romaji: "nya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -751,7 +751,7 @@ export const kanas: Character[] = [
     romaji: "nyu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -760,7 +760,7 @@ export const kanas: Character[] = [
     romaji: "nyo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -769,7 +769,7 @@ export const kanas: Character[] = [
     romaji: "hya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -778,7 +778,7 @@ export const kanas: Character[] = [
     romaji: "hyu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -787,7 +787,7 @@ export const kanas: Character[] = [
     romaji: "hyo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -796,7 +796,7 @@ export const kanas: Character[] = [
     romaji: "mya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -805,7 +805,7 @@ export const kanas: Character[] = [
     romaji: "myu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -814,7 +814,7 @@ export const kanas: Character[] = [
     romaji: "myo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -823,7 +823,7 @@ export const kanas: Character[] = [
     romaji: "rya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -832,7 +832,7 @@ export const kanas: Character[] = [
     romaji: "ryu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -841,7 +841,7 @@ export const kanas: Character[] = [
     romaji: "ryo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -850,7 +850,7 @@ export const kanas: Character[] = [
     romaji: "gya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -859,7 +859,7 @@ export const kanas: Character[] = [
     romaji: "gyu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -868,7 +868,7 @@ export const kanas: Character[] = [
     romaji: "gyo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -877,7 +877,7 @@ export const kanas: Character[] = [
     romaji: "ja",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -886,7 +886,7 @@ export const kanas: Character[] = [
     romaji: "ju",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -895,7 +895,7 @@ export const kanas: Character[] = [
     romaji: "jo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -904,7 +904,7 @@ export const kanas: Character[] = [
     romaji: "ja",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -913,7 +913,7 @@ export const kanas: Character[] = [
     romaji: "ju",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -922,7 +922,7 @@ export const kanas: Character[] = [
     romaji: "jo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -931,7 +931,7 @@ export const kanas: Character[] = [
     romaji: "bya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -940,7 +940,7 @@ export const kanas: Character[] = [
     romaji: "byu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -949,7 +949,7 @@ export const kanas: Character[] = [
     romaji: "byo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -958,7 +958,7 @@ export const kanas: Character[] = [
     romaji: "pya",
     row: 0,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -967,7 +967,7 @@ export const kanas: Character[] = [
     romaji: "pyu",
     row: 1,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -976,7 +976,7 @@ export const kanas: Character[] = [
     romaji: "pyo",
     row: 2,
     type: "hiragana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -985,7 +985,7 @@ export const kanas: Character[] = [
     romaji: "a",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -994,7 +994,7 @@ export const kanas: Character[] = [
     romaji: "i",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -1003,7 +1003,7 @@ export const kanas: Character[] = [
     romaji: "u",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -1012,7 +1012,7 @@ export const kanas: Character[] = [
     romaji: "e",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -1021,7 +1021,7 @@ export const kanas: Character[] = [
     romaji: "o",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1030,7 +1030,7 @@ export const kanas: Character[] = [
     romaji: "ka",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1039,7 +1039,7 @@ export const kanas: Character[] = [
     romaji: "ki",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1048,7 +1048,7 @@ export const kanas: Character[] = [
     romaji: "ku",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1057,7 +1057,7 @@ export const kanas: Character[] = [
     romaji: "ke",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1066,7 +1066,7 @@ export const kanas: Character[] = [
     romaji: "ko",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1075,7 +1075,7 @@ export const kanas: Character[] = [
     romaji: "sa",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1084,7 +1084,7 @@ export const kanas: Character[] = [
     romaji: "shi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1093,7 +1093,7 @@ export const kanas: Character[] = [
     romaji: "su",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1102,7 +1102,7 @@ export const kanas: Character[] = [
     romaji: "se",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1111,7 +1111,7 @@ export const kanas: Character[] = [
     romaji: "so",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1120,7 +1120,7 @@ export const kanas: Character[] = [
     romaji: "ta",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1129,7 +1129,7 @@ export const kanas: Character[] = [
     romaji: "chi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1138,7 +1138,7 @@ export const kanas: Character[] = [
     romaji: "tsu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1147,7 +1147,7 @@ export const kanas: Character[] = [
     romaji: "te",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1156,7 +1156,7 @@ export const kanas: Character[] = [
     romaji: "to",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1165,7 +1165,7 @@ export const kanas: Character[] = [
     romaji: "na",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1174,7 +1174,7 @@ export const kanas: Character[] = [
     romaji: "ni",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1183,7 +1183,7 @@ export const kanas: Character[] = [
     romaji: "nu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1192,7 +1192,7 @@ export const kanas: Character[] = [
     romaji: "ne",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1201,7 +1201,7 @@ export const kanas: Character[] = [
     romaji: "no",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1210,7 +1210,7 @@ export const kanas: Character[] = [
     romaji: "ha",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1219,7 +1219,7 @@ export const kanas: Character[] = [
     romaji: "hi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1228,7 +1228,7 @@ export const kanas: Character[] = [
     romaji: "fu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1237,7 +1237,7 @@ export const kanas: Character[] = [
     romaji: "he",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1246,7 +1246,7 @@ export const kanas: Character[] = [
     romaji: "ho",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1255,7 +1255,7 @@ export const kanas: Character[] = [
     romaji: "ma",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1264,7 +1264,7 @@ export const kanas: Character[] = [
     romaji: "mi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1273,7 +1273,7 @@ export const kanas: Character[] = [
     romaji: "mu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1282,7 +1282,7 @@ export const kanas: Character[] = [
     romaji: "me",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1291,7 +1291,7 @@ export const kanas: Character[] = [
     romaji: "mo",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -1300,7 +1300,7 @@ export const kanas: Character[] = [
     romaji: "ya",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -1309,7 +1309,7 @@ export const kanas: Character[] = [
     romaji: "yu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -1318,7 +1318,7 @@ export const kanas: Character[] = [
     romaji: "yo",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1327,7 +1327,7 @@ export const kanas: Character[] = [
     romaji: "ra",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1336,7 +1336,7 @@ export const kanas: Character[] = [
     romaji: "ri",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1345,7 +1345,7 @@ export const kanas: Character[] = [
     romaji: "ru",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1354,7 +1354,7 @@ export const kanas: Character[] = [
     romaji: "re",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1363,7 +1363,7 @@ export const kanas: Character[] = [
     romaji: "ro",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -1372,7 +1372,7 @@ export const kanas: Character[] = [
     romaji: "wa",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -1381,7 +1381,7 @@ export const kanas: Character[] = [
     romaji: "wo",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -1390,7 +1390,7 @@ export const kanas: Character[] = [
     romaji: "n",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1399,7 +1399,7 @@ export const kanas: Character[] = [
     romaji: "ga",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1408,7 +1408,7 @@ export const kanas: Character[] = [
     romaji: "gi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1417,7 +1417,7 @@ export const kanas: Character[] = [
     romaji: "gu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1426,7 +1426,7 @@ export const kanas: Character[] = [
     romaji: "ge",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1435,7 +1435,7 @@ export const kanas: Character[] = [
     romaji: "go",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -1444,7 +1444,7 @@ export const kanas: Character[] = [
     romaji: "za",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -1453,7 +1453,7 @@ export const kanas: Character[] = [
     romaji: "ji",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -1462,7 +1462,7 @@ export const kanas: Character[] = [
     romaji: "zu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -1471,7 +1471,7 @@ export const kanas: Character[] = [
     romaji: "ze",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 12,
@@ -1480,7 +1480,7 @@ export const kanas: Character[] = [
     romaji: "zo",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -1489,7 +1489,7 @@ export const kanas: Character[] = [
     romaji: "da",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -1498,7 +1498,7 @@ export const kanas: Character[] = [
     romaji: "ji",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -1507,7 +1507,7 @@ export const kanas: Character[] = [
     romaji: "zu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -1516,7 +1516,7 @@ export const kanas: Character[] = [
     romaji: "de",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 13,
@@ -1525,7 +1525,7 @@ export const kanas: Character[] = [
     romaji: "do",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -1534,7 +1534,7 @@ export const kanas: Character[] = [
     romaji: "ba",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -1543,7 +1543,7 @@ export const kanas: Character[] = [
     romaji: "bi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -1552,7 +1552,7 @@ export const kanas: Character[] = [
     romaji: "bu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -1561,7 +1561,7 @@ export const kanas: Character[] = [
     romaji: "be",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 14,
@@ -1570,7 +1570,7 @@ export const kanas: Character[] = [
     romaji: "bo",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -1579,7 +1579,7 @@ export const kanas: Character[] = [
     romaji: "pa",
     row: 0,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -1588,7 +1588,7 @@ export const kanas: Character[] = [
     romaji: "pi",
     row: 1,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -1597,7 +1597,7 @@ export const kanas: Character[] = [
     romaji: "pu",
     row: 2,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -1606,7 +1606,7 @@ export const kanas: Character[] = [
     romaji: "pe",
     row: 3,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 15,
@@ -1615,7 +1615,7 @@ export const kanas: Character[] = [
     romaji: "po",
     row: 4,
     type: "katakana",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -1624,7 +1624,7 @@ export const kanas: Character[] = [
     romaji: "kya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -1633,7 +1633,7 @@ export const kanas: Character[] = [
     romaji: "kyu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 0,
@@ -1642,7 +1642,7 @@ export const kanas: Character[] = [
     romaji: "kyo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1651,7 +1651,7 @@ export const kanas: Character[] = [
     romaji: "sha",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1660,7 +1660,7 @@ export const kanas: Character[] = [
     romaji: "shu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 1,
@@ -1669,7 +1669,7 @@ export const kanas: Character[] = [
     romaji: "sho",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1678,7 +1678,7 @@ export const kanas: Character[] = [
     romaji: "cha",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1687,7 +1687,7 @@ export const kanas: Character[] = [
     romaji: "chu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 2,
@@ -1696,7 +1696,7 @@ export const kanas: Character[] = [
     romaji: "cho",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1705,7 +1705,7 @@ export const kanas: Character[] = [
     romaji: "nya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1714,7 +1714,7 @@ export const kanas: Character[] = [
     romaji: "nyu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 3,
@@ -1723,7 +1723,7 @@ export const kanas: Character[] = [
     romaji: "nyo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1732,7 +1732,7 @@ export const kanas: Character[] = [
     romaji: "hya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1741,7 +1741,7 @@ export const kanas: Character[] = [
     romaji: "hyu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 4,
@@ -1750,7 +1750,7 @@ export const kanas: Character[] = [
     romaji: "hyo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1759,7 +1759,7 @@ export const kanas: Character[] = [
     romaji: "mya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1768,7 +1768,7 @@ export const kanas: Character[] = [
     romaji: "myu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 5,
@@ -1777,7 +1777,7 @@ export const kanas: Character[] = [
     romaji: "myo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1786,7 +1786,7 @@ export const kanas: Character[] = [
     romaji: "rya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1795,7 +1795,7 @@ export const kanas: Character[] = [
     romaji: "ryu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 6,
@@ -1804,7 +1804,7 @@ export const kanas: Character[] = [
     romaji: "ryo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -1813,7 +1813,7 @@ export const kanas: Character[] = [
     romaji: "gya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -1822,7 +1822,7 @@ export const kanas: Character[] = [
     romaji: "gyu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 7,
@@ -1831,7 +1831,7 @@ export const kanas: Character[] = [
     romaji: "gyo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1840,7 +1840,7 @@ export const kanas: Character[] = [
     romaji: "ja",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1849,7 +1849,7 @@ export const kanas: Character[] = [
     romaji: "ju",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 8,
@@ -1858,7 +1858,7 @@ export const kanas: Character[] = [
     romaji: "jo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -1867,7 +1867,7 @@ export const kanas: Character[] = [
     romaji: "ja",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -1876,7 +1876,7 @@ export const kanas: Character[] = [
     romaji: "ju",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 9,
@@ -1885,7 +1885,7 @@ export const kanas: Character[] = [
     romaji: "jo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -1894,7 +1894,7 @@ export const kanas: Character[] = [
     romaji: "bya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -1903,7 +1903,7 @@ export const kanas: Character[] = [
     romaji: "byu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 10,
@@ -1912,7 +1912,7 @@ export const kanas: Character[] = [
     romaji: "byo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1921,7 +1921,7 @@ export const kanas: Character[] = [
     romaji: "pya",
     row: 0,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1930,7 +1930,7 @@ export const kanas: Character[] = [
     romaji: "pyu",
     row: 1,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
   {
     column: 11,
@@ -1939,6 +1939,6 @@ export const kanas: Character[] = [
     romaji: "pyo",
     row: 2,
     type: "katakana-combos",
-    weight: 0,
+    weight: 1,
   },
 ];
