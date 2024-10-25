@@ -87,11 +87,11 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
   );
   const mappedKanas = mapTableCharacters(tableKanas);
 
-  const selectColumn = (index: number) => {
+  const selectColumn = (index: number, isSelected: boolean) => {
     setKanas((draft) => {
       draft.forEach((character) => {
         if (character.column === index && character.type === kanaType) {
-          character.isSelected = !character.isSelected;
+          character.isSelected = isSelected;
         }
       });
     });
@@ -112,7 +112,9 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
                   <input
                     checked={isSelected}
                     className="text-blue-600 lg:m-2"
-                    onChange={() => selectColumn(columnIndex)}
+                    onChange={(e) =>
+                      selectColumn(columnIndex, e.target.checked)
+                    }
                     type="checkbox"
                   />
                 </label>
