@@ -1,7 +1,7 @@
 "use client";
 
-import { kanas, type KanaType } from "@/entities/characters";
-import { selectedColumnsAtom } from "@/entities/columns-state";
+import { kanaColumns, type KanaType } from "@/entities/characters";
+import { selectedColumnsAtom } from "@/entities/characters-state";
 import { useAtom } from "jotai";
 import { useCallback } from "react";
 
@@ -28,7 +28,7 @@ export const KanaPicker = () => {
         <h3 className="text-xl font-semibold">Hiragana ひらがな</h3>
         <div className="mt-1">
           <KanaTable
-            columns={kanas.hiragana}
+            columns={kanaColumns.hiragana}
             selectedColumns={selectedColumns.hiragana}
             toggleColumn={(index) => toggleSelectedColumn(index, "hiragana")}
           />
@@ -40,7 +40,7 @@ export const KanaPicker = () => {
         </h3>
         <div className="mt-1">
           <KanaTable
-            columns={kanas["hiragana-combos"]}
+            columns={kanaColumns["hiragana-combos"]}
             selectedColumns={selectedColumns["hiragana-combos"]}
             toggleColumn={(index) =>
               toggleSelectedColumn(index, "hiragana-combos")
@@ -52,7 +52,7 @@ export const KanaPicker = () => {
         <h3 className="text-xl font-semibold">Katakana カタカナ</h3>
         <div className="mt-1">
           <KanaTable
-            columns={kanas.katakana}
+            columns={kanaColumns.katakana}
             selectedColumns={selectedColumns.katakana}
             toggleColumn={(index) => toggleSelectedColumn(index, "katakana")}
           />
@@ -64,7 +64,7 @@ export const KanaPicker = () => {
         </h3>
         <div className="mt-1">
           <KanaTable
-            columns={kanas["katakana-combos"]}
+            columns={kanaColumns["katakana-combos"]}
             selectedColumns={selectedColumns["katakana-combos"]}
             toggleColumn={(index) =>
               toggleSelectedColumn(index, "katakana-combos")

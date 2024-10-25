@@ -9,7 +9,7 @@ export type KanaType =
   | "katakana"
   | "katakana-combos";
 
-export const kanas: Record<KanaType, (Character | null)[][]> = {
+export const kanaColumns: Record<KanaType, (Character | null)[][]> = {
   hiragana: [
     // First column (Vowels)
     [
