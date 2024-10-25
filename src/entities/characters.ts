@@ -11,7 +11,7 @@ export type Character = {
   romaji: string;
   row: number;
   type: KanaType;
-  weight: number; // defaults to 1
+  weight: number;
 };
 
 export const kanas: Character[] = [
