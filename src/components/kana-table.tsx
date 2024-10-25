@@ -1,8 +1,5 @@
-"use client";
-
 import { type Character } from "@/entities/characters";
 import { cn } from "@/utils/cn";
-import { useState } from "react";
 
 const KanaCell = ({
   character,
@@ -28,19 +25,15 @@ const KanaCell = ({
   );
 };
 
-export const KanaTable = ({ columns }: { columns: (Character | null)[][] }) => {
-  const [selectedColumns, setSelectedColumns] = useState<boolean[]>(
-    new Array(columns.length).fill(false)
-  );
-
-  const toggleColumn = (index: number) => {
-    setSelectedColumns((prevSelected) => {
-      const updated = [...prevSelected];
-      updated[index] = !updated[index];
-      return updated;
-    });
-  };
-
+export const KanaTable = ({
+  columns,
+  selectedColumns,
+  toggleColumn,
+}: {
+  columns: (Character | null)[][];
+  selectedColumns: boolean[];
+  toggleColumn: (index: number) => void;
+}) => {
   return (
     <table className="min-w-full border-collapse border border-gray-300">
       <thead>
