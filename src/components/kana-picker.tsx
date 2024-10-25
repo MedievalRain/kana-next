@@ -11,7 +11,7 @@ export const KanaPicker = () => {
       </li>
       <li>
         <h3 className="text-xl font-semibold">
-          Hiragana combinations ひらがな
+          Hiragana combinations ひらがな拗音
         </h3>
         <div className="mt-1">
           <KanaTable kanaType="hiragana-combos" />
@@ -25,7 +25,7 @@ export const KanaPicker = () => {
       </li>
       <li>
         <h3 className="text-xl font-semibold">
-          Katakana combinations カタカナ
+          Katakana combinations カタカナ拗音
         </h3>
         <div className="mt-1">
           <KanaTable kanaType="katakana-combos" />
