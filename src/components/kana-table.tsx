@@ -19,7 +19,7 @@ const KanaCell = ({
   return (
     <td
       className={cn(
-        "border border-background-300 p-2 text-center",
+        "border border-background-300 lg:p-2 text-center",
         isSelected && "bg-[#42b4ff4d]"
       )}
     >
@@ -111,7 +111,7 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
                 <label className="block">
                   <input
                     checked={isSelected}
-                    className="m-2 text-blue-600"
+                    className="text-blue-600 lg:m-2"
                     onChange={() => selectColumn(columnIndex)}
                     type="checkbox"
                   />
