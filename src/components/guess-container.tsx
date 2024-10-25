@@ -85,12 +85,16 @@ export const GuessContainer = () => {
       setIsError(true);
     }
   }, [inputValue, characterToGuess, setCharacters]);
-  console.log({ characterToGuess });
+
   return (
     <div className="flex flex-col items-center gap-2">
-      <span className={cn("text-5xl font-bold", { "text-red-500": isError })}>
-        {characterToGuess?.kana || <span className="invisible">あ</span>}
-      </span>
+      {characterToGuess ? (
+        <span className={cn("text-5xl font-bold", { "text-red-500": isError })}>
+          {characterToGuess.kana}
+        </span>
+      ) : (
+        <span className="text-lg leading-[3rem]">Choose columns to grind</span>
+      )}
       <span>
         {stats.correct}/{stats.correct + stats.incorrect}
       </span>
