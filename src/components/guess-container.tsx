@@ -3,7 +3,10 @@
 import { type Character } from "@/entities/characters";
 import { kanasAtom } from "@/entities/characters-state";
 import { useAtom } from "jotai";
+import { useEffect, useState } from "react";
 import { prop, sortBy } from "remeda";
+
+import { GuessInput } from "./guess-input";
 
 const calculateCDF = (characters: Character[]) => {
   const sumWeights = characters.reduce<number>((acc, { weight }) => {
@@ -32,7 +35,37 @@ export const GuessContainer = () => {
   const selectedCharacters = characters.filter(
     ({ isSelected }) => isSelected === true
   );
-  const characterToGuess = getWeightedCharacter(selectedCharacters);
 
-  return <span className="text-4xl font-bold">{characterToGuess?.kana}</span>;
+  const characterToGuess = getWeightedCharacter(selectedCharacters);
+  const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    if (!inputValue || !characterToGuess) {
+      console.log("early return");
+      return;
+    }
+
+    if (inputValue === characterToGuess.romaji) {
+      console.log({ characterToGuess, inputValue });
+
+      setCharacters((draft) => {
+        const character = draft.find(
+          ({ kana }) => kana === characterToGuess.kana
+        )!;
+        character.weight = character.weight * 1.1;
+      });
+
+      setInputValue("");
+    }
+  }, [inputValue, characterToGuess, setCharacters]);
+
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <span className="text-5xl font-bold">
+        {" "}
+        {characterToGuess?.kana || <span className="invisible">あ</span>}
+      </span>
+      <GuessInput setValue={setInputValue} value={inputValue} />
+    </div>
+  );
 };
