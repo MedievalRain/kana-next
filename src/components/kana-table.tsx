@@ -1,25 +1,39 @@
-"use client";
-
-import { type Character, kanas, type KanaType } from "@/entities/characters";
-import { selectedColumnsAtoms } from "@/entities/columns-state";
+import { type Character } from "@/entities/characters";
 import { cn } from "@/utils/cn";
-import { useAtom } from "jotai";
-import { useCallback } from "react";
 
-export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
-  const [selectedColumns, setSelectedColumns] = useAtom(
-    selectedColumnsAtoms[kanaType]
+const KanaCell = ({
+  character,
+  isSelected,
+}: {
+  character: Character | null;
+  isSelected: boolean;
+}) => {
+  return (
+    <td
+      className={cn(
+        "border border-background-300 p-2 text-center",
+        isSelected && "bg-[#42b4ff4d]"
+      )}
+    >
+      {character ? (
+        <div>
+          <div>{character.kana}</div>
+          <div className="text-sm text-gray-500">{character.romaji}</div>
+        </div>
+      ) : null}
+    </td>
   );
-  const columns = kanas[kanaType];
-  const toggleColumn = useCallback(
-    (index: number) => {
-      setSelectedColumns((draft) => {
-        draft[index] = !draft[index];
-      });
-    },
-    [setSelectedColumns]
-  );
+};
 
+export const KanaTable = ({
+  columns,
+  selectedColumns,
+  toggleColumn,
+}: {
+  columns: (Character | null)[][];
+  selectedColumns: boolean[];
+  toggleColumn: (index: number) => void;
+}) => {
   return (
     <table className="min-w-full border-collapse border border-gray-300">
       <thead>
@@ -57,29 +71,5 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
         ))}
       </tbody>
     </table>
-  );
-};
-
-const KanaCell = ({
-  character,
-  isSelected,
-}: {
-  character: Character | null;
-  isSelected: boolean;
-}) => {
-  return (
-    <td
-      className={cn(
-        "border border-background-300 p-2 text-center",
-        isSelected && "bg-[#42b4ff4d]"
-      )}
-    >
-      {character ? (
-        <div>
-          <div>{character.kana}</div>
-          <div className="text-sm text-gray-500">{character.romaji}</div>
-        </div>
-      ) : null}
-    </td>
   );
 };
