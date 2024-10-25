@@ -5,6 +5,7 @@ import { kanasAtom } from "@/entities/characters-state";
 import { cn } from "@/utils/cn";
 import { atom, useAtom, useSetAtom } from "jotai";
 import { useMemo } from "react";
+import { firstBy } from "remeda";
 
 const KanaCell = ({
   isSelected,
@@ -32,6 +33,9 @@ const KanaCell = ({
   );
 };
 
+const getColumnsCount = (characters: Character[]) =>
+  firstBy(characters, [(character) => character.column, "desc"])!.column;
+
 const mapTableCharacters = (
   characters: Character[]
 ): (Character | null)[][] => {
@@ -42,8 +46,11 @@ const mapTableCharacters = (
     return a.row - b.row;
   });
 
-  const maxRow = Math.max(...characters.map((char) => char.row));
-  const maxColumn = Math.max(...characters.map((char) => char.column));
+  const maxRow = firstBy(characters, [
+    (character) => character.row,
+    "desc",
+  ])!.row;
+  const maxColumn = getColumnsCount(characters);
 
   const table: (Character | null)[][] = Array.from({ length: maxRow + 1 }, () =>
     Array(maxColumn + 1).fill(null)
@@ -54,6 +61,19 @@ const mapTableCharacters = (
   });
 
   return table;
+};
+
+const mapSelectedColumns = (kanas: Character[]) => {
+  const columnsCount = getColumnsCount(kanas);
+  const selectedColumns: boolean[] = Array(columnsCount).fill(true);
+
+  kanas.forEach((character) => {
+    if (!character.isSelected) {
+      selectedColumns[character.column] = false;
+    }
+  });
+
+  return selectedColumns;
 };
 
 export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
@@ -70,18 +90,19 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
   const selectColumn = (index: number) => {
     setKanas((draft) => {
       draft.forEach((character) => {
-        if (character.column === index) {
+        if (character.column === index && character.type === kanaType) {
           character.isSelected = !character.isSelected;
         }
       });
     });
   };
 
+  const selectedColumns = mapSelectedColumns(tableKanas);
   return (
     <table className="min-w-full border-collapse border border-gray-300">
       <thead>
         <tr>
-          {mappedKanas[0].map((_, columnIndex) => {
+          {selectedColumns.map((isSelected, columnIndex) => {
             return (
               <th
                 className="border border-background-300 bg-background-200 text-center"
@@ -89,11 +110,7 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
               >
                 <label className="block">
                   <input
-                    checked={tableKanas.every(
-                      (character) =>
-                        character.column !== columnIndex ||
-                        character?.isSelected === true
-                    )}
+                    checked={isSelected}
                     className="m-2 text-blue-600"
                     onChange={() => selectColumn(columnIndex)}
                     type="checkbox"
@@ -107,14 +124,20 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
       <tbody>
         {mappedKanas.map((row, rowIndex) => (
           <tr key={rowIndex}>
-            {row.map((character, columnIndex) => (
-              <KanaCell
-                isSelected={character?.isSelected}
-                kana={character?.kana}
-                key={`${rowIndex}-${columnIndex}`}
-                romaji={character?.romaji}
-              />
-            ))}
+            {row.map((character, columnIndex) => {
+              return (
+                <KanaCell
+                  isSelected={
+                    character
+                      ? character.isSelected
+                      : selectedColumns[columnIndex]
+                  }
+                  kana={character?.kana}
+                  key={`${rowIndex}-${columnIndex}`}
+                  romaji={character?.romaji}
+                />
+              );
+            })}
           </tr>
         ))}
       </tbody>
