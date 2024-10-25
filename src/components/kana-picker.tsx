@@ -1,61 +1,26 @@
-"use client";
-
-import { kanaColumns, type KanaType } from "@/entities/characters";
-import { selectedColumnsAtom } from "@/entities/characters-state";
-import { useAtom } from "jotai";
-import { useCallback } from "react";
-
 import { KanaTable } from "./kana-table";
 
 export const KanaPicker = () => {
-  const [selectedColumns, setSelectedColumns] = useAtom(selectedColumnsAtom);
-
-  const toggleSelectedColumn = useCallback(
-    (index: number, kanaType: KanaType) => {
-      setSelectedColumns((draft) => {
-        if (draft[kanaType] && draft[kanaType][index] !== undefined) {
-          draft[kanaType][index] = !draft[kanaType][index];
-        }
-      });
-      console.log({ index, kanaType });
-    },
-    [setSelectedColumns]
-  );
-
   return (
     <ul className="flex flex-col gap-8">
       <li>
         <h3 className="text-xl font-semibold">Hiragana ひらがな</h3>
         <div className="mt-1">
-          <KanaTable
-            columns={kanaColumns.hiragana}
-            selectedColumns={selectedColumns.hiragana}
-            toggleColumn={(index) => toggleSelectedColumn(index, "hiragana")}
-          />
+          <KanaTable kanaType="hiragana" />
         </div>
       </li>
-      <li>
+      {/* <li>
         <h3 className="text-xl font-semibold">
           Hiragana combinations ひらがな
         </h3>
         <div className="mt-1">
-          <KanaTable
-            columns={kanaColumns["hiragana-combos"]}
-            selectedColumns={selectedColumns["hiragana-combos"]}
-            toggleColumn={(index) =>
-              toggleSelectedColumn(index, "hiragana-combos")
-            }
-          />
+          <KanaTable kanaType="hiragana-combos" />
         </div>
       </li>
       <li>
         <h3 className="text-xl font-semibold">Katakana カタカナ</h3>
         <div className="mt-1">
-          <KanaTable
-            columns={kanaColumns.katakana}
-            selectedColumns={selectedColumns.katakana}
-            toggleColumn={(index) => toggleSelectedColumn(index, "katakana")}
-          />
+          <KanaTable kanaType="katakana" />
         </div>
       </li>
       <li>
@@ -63,15 +28,9 @@ export const KanaPicker = () => {
           Katakana combinations カタカナ
         </h3>
         <div className="mt-1">
-          <KanaTable
-            columns={kanaColumns["katakana-combos"]}
-            selectedColumns={selectedColumns["katakana-combos"]}
-            toggleColumn={(index) =>
-              toggleSelectedColumn(index, "katakana-combos")
-            }
-          />
+          <KanaTable kanaType="katakana-combos" />
         </div>
-      </li>
+      </li> */}
     </ul>
   );
 };
