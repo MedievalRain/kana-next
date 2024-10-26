@@ -9,8 +9,11 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@types/react": "npm:types-react@rc",
+		"@types/react-dom": "npm:types-react-dom@rc",
 		"babel-plugin-react-compiler": "^19.0.0-beta-8a03594-20241020",
 		"clsx": "^2.1.1",
+		"framer-motion": "^11.11.10",
 		"immer": "^10.1.1",
 		"jotai": "^2.10.1",
 		"jotai-immer": "^0.4.1",
@@ -18,9 +21,7 @@
 		"react": "19.0.0-rc-1631855f-20241023",
 		"react-dom": "19.0.0-rc-1631855f-20241023",
 		"remeda": "^2.16.0",
-		"tailwind-merge": "^2.5.4",
-		"@types/react": "npm:types-react@rc",
-		"@types/react-dom": "npm:types-react-dom@rc"
+		"tailwind-merge": "^2.5.4"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.1.0",

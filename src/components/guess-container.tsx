@@ -3,6 +3,7 @@
 import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType, katakanaComboTable, katakanaTable } from "@/entities/characters";
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { cn } from "@/utils/cn";
+import { motion, useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
@@ -78,6 +79,7 @@ export const GuessContainer = () => {
 	const selectedKanas = getSelectedKanas(selectedColumns);
 	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
 	const inputRef = useRef<HTMLInputElement>(null);
+	const animationControls = useAnimation();
 
 	const onInputChange = (newInputValue: string) => {
 		if (!characterToGuess) {
@@ -105,10 +107,18 @@ export const GuessContainer = () => {
 			setIsError(true);
 			const element = inputRef.current!;
 			element.disabled = true;
-
+			animationControls.start({
+				transition: {
+					duration: 0.5,
+					ease: "easeInOut",
+					repeat: Infinity,
+				},
+				x: [0, -5, 5, -5, 5, -5, 5, -5, 5, 0],
+			});
 			setTimeout(() => {
 				element.disabled = false;
 				element.focus();
+				animationControls.stop();
 			}, 500);
 		}
 	};
@@ -122,7 +132,16 @@ export const GuessContainer = () => {
 	return (
 		<div className="flex flex-col items-center gap-2">
 			{characterToGuess ? (
-				<span className={cn("text-5xl font-bold", { "text-red-500": isError })}>{characterToGuess.kana}</span>
+				<motion.span
+					animate={animationControls}
+					className={cn("text-5xl font-bold", { "text-red-500": isError })}
+					transition={{
+						duration: 0.5,
+						ease: "easeInOut",
+					}}
+				>
+					{characterToGuess.kana}
+				</motion.span>
 			) : (
 				<span className="text-lg leading-[3rem]">Choose columns to grind</span>
 			)}
