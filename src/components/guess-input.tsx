@@ -1,16 +1,12 @@
 "use client";
 
-import { ChangeEvent, RefObject, useRef } from "react";
+import { ChangeEvent, RefObject } from "react";
 
 export const GuessInput = ({ ref, setValue, value }: { ref: RefObject<HTMLInputElement>; setValue: (value: string) => void; value: string }) => {
-	const oldValue = useRef("");
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const typedValue = e.target.value;
 		const cleanedValue = typedValue.replace(/[^a-zA-Z\s]/g, "");
-		if (cleanedValue === oldValue.current) {
-			return;
-		}
-		oldValue.current = cleanedValue;
+
 		setValue(cleanedValue);
 	};
 
