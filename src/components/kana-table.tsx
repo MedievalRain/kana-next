@@ -4,30 +4,17 @@ import { type Character, KanaType } from "@/entities/characters";
 import { kanasAtom } from "@/entities/characters-state";
 import { cn } from "@/utils/cn";
 import { atom, useAtom, useSetAtom } from "jotai";
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 import { firstBy } from "remeda";
 
-const KanaCell = ({
-  isSelected,
-  kana,
-  romaji,
-}: {
-  isSelected?: boolean;
-  kana?: string;
-  romaji?: string;
-}) => {
+const KanaCell = ({ kana, romaji }: { kana?: string; romaji?: string }) => {
   return (
-    <td
-      className={cn(
-        "border border-background-300 lg:p-2 text-center",
-        isSelected && "bg-[#42b4ff4d]"
-      )}
-    >
+    <td className={cn("border border-background-300 text-center ")}>
       {kana && romaji ? (
-        <div>
+        <>
           <div>{kana}</div>
           <div className="text-sm text-gray-500">{romaji}</div>
-        </div>
+        </>
       ) : null}
     </td>
   );
@@ -35,6 +22,8 @@ const KanaCell = ({
 
 const getColumnsCount = (characters: Character[]) =>
   firstBy(characters, [(character) => character.column, "desc"])!.column;
+const getRowsCount = (characters: Character[]) =>
+  firstBy(characters, [(character) => character.row, "desc"])!.row;
 
 const mapTableCharacters = (
   characters: Character[]
@@ -46,10 +35,7 @@ const mapTableCharacters = (
     return a.row - b.row;
   });
 
-  const maxRow = firstBy(characters, [
-    (character) => character.row,
-    "desc",
-  ])!.row;
+  const maxRow = getRowsCount(characters);
   const maxColumn = getColumnsCount(characters);
 
   const table: (Character | null)[][] = Array.from({ length: maxRow + 1 }, () =>
@@ -63,17 +49,17 @@ const mapTableCharacters = (
   return table;
 };
 
-const mapSelectedColumns = (kanas: Character[]) => {
-  const columnsCount = getColumnsCount(kanas);
-  const selectedColumns: boolean[] = Array(columnsCount).fill(true);
+const mapSelectedRows = (kanas: Character[]) => {
+  const rowsCount = getRowsCount(kanas);
+  const selectedRows: boolean[] = Array(rowsCount).fill(true);
 
   kanas.forEach((character) => {
     if (!character.isSelected) {
-      selectedColumns[character.column] = false;
+      selectedRows[character.row] = false;
     }
   });
 
-  return selectedColumns;
+  return selectedRows;
 };
 
 export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
@@ -87,61 +73,64 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
   );
   const mappedKanas = mapTableCharacters(tableKanas);
 
-  const selectColumn = (index: number, isSelected: boolean) => {
+  const selectRow = (index: number, isSelected: boolean) => {
+    console.log({ index, isSelected });
     setKanas((draft) => {
       draft.forEach((character) => {
-        if (character.column === index && character.type === kanaType) {
+        if (character.row === index && character.type === kanaType) {
           character.isSelected = isSelected;
         }
       });
     });
   };
 
-  const selectedColumns = mapSelectedColumns(tableKanas);
+  const selectedRows = mapSelectedRows(tableKanas);
+  console.log({ kanaType, selectedRows, tableKanas });
   return (
-    <table className="min-w-full border-collapse border border-gray-300">
-      <thead>
-        <tr>
-          {selectedColumns.map((isSelected, columnIndex) => {
-            return (
-              <th
-                className="border border-background-300 bg-background-200 text-center"
-                key={columnIndex}
-              >
-                <label className="block">
-                  <input
-                    checked={isSelected}
-                    className="text-blue-600 lg:m-2"
-                    onChange={(e) =>
-                      selectColumn(columnIndex, e.target.checked)
-                    }
-                    type="checkbox"
-                  />
-                </label>
-              </th>
-            );
-          })}
-        </tr>
-      </thead>
+    <table className="w-full min-w-full table-fixed border-collapse border border-gray-300">
       <tbody>
-        {mappedKanas.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {row.map((character, columnIndex) => {
-              return (
-                <KanaCell
-                  isSelected={
-                    character
-                      ? character.isSelected
-                      : selectedColumns[columnIndex]
-                  }
-                  kana={character?.kana}
-                  key={`${rowIndex}-${columnIndex}`}
-                  romaji={character?.romaji}
-                />
-              );
-            })}
-          </tr>
-        ))}
+        {mappedKanas.map((row, rowIndex) => {
+          return (
+            <tr
+              className={cn({
+                "bg-[#42b4ff4d]": selectedRows[rowIndex] === true,
+              })}
+              key={rowIndex}
+            >
+              {row.map((character, columnIndex) => {
+                return (
+                  <Fragment key={`cell-${rowIndex}-${columnIndex}`}>
+                    {columnIndex === 0 && (
+                      <th
+                        className={cn(
+                          "border border-background-300 bg-background-200 text-center",
+                          {
+                            "bg-[#42b4ff4d]": selectedRows[rowIndex] === true,
+                          }
+                        )}
+                      >
+                        <label className="block">
+                          <input
+                            checked={selectedRows[rowIndex] === true}
+                            className="text-blue-600 lg:m-2"
+                            onChange={(e) =>
+                              selectRow(rowIndex, e.target.checked)
+                            }
+                            type="checkbox"
+                          />
+                        </label>
+                      </th>
+                    )}
+                    <KanaCell
+                      kana={character?.kana}
+                      romaji={character?.romaji}
+                    />
+                  </Fragment>
+                );
+              })}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
