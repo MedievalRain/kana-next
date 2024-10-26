@@ -24,10 +24,10 @@ const KanaCell = ({
       )}
     >
       {kana && romaji ? (
-        <div>
-          <div>{kana}</div>
-          <div className="text-sm text-gray-500">{romaji}</div>
-        </div>
+        <>
+          <span>{kana}</span>
+          <span className="text-sm text-gray-500">{romaji}</span>
+        </>
       ) : null}
     </td>
   );
