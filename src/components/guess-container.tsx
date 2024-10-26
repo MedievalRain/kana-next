@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { cn } from "@/utils/cn";
 import { useAtom } from "jotai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { GuessInput } from "./guess-input";
@@ -76,7 +76,7 @@ export const GuessContainer = () => {
 	const [learningState, setLearningState] = useAtom(learningStateAtom);
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = getSelectedKanas(selectedColumns);
-	const characterToGuess = getCharacterToGuess(selectedKanas, learningState);
+	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
 
 	const onInputChange = (newInputValue: string) => {
 		if (!characterToGuess) {
@@ -88,6 +88,7 @@ export const GuessContainer = () => {
 				const character = draft.find(({ kana }) => kana === characterToGuess.kana)!;
 				character.weight = increaseWeight(character.weight);
 			});
+
 			setInputValue("");
 			setIsError(false);
 			setStats((v) => ({ ...v, correct: v.correct + 1 }));
@@ -104,7 +105,12 @@ export const GuessContainer = () => {
 		}
 	};
 
-	console.log({ characterToGuess, inputValue, selectedKanas });
+	useEffect(() => {
+		if (!isError) {
+			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
+		}
+	}, [isError, learningState, selectedKanas]);
+
 	return (
 		<div className="flex flex-col items-center gap-2">
 			{characterToGuess ? (
