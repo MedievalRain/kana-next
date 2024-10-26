@@ -2,12 +2,12 @@
 
 import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType, katakanaComboTable, katakanaTable } from "@/entities/characters";
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
-import { cn } from "@/utils/cn";
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
+import { CharactersGuess } from "./character-guess";
 import { GuessInput } from "./guess-input";
 
 const increaseWeight = (currentWeight: number) => {
@@ -131,20 +131,7 @@ export const GuessContainer = () => {
 
 	return (
 		<div className="flex flex-col items-center gap-2">
-			{characterToGuess ? (
-				<motion.span
-					animate={animationControls}
-					className={cn("text-5xl font-bold", { "text-red-500": isError })}
-					transition={{
-						duration: 0.5,
-						ease: "easeInOut",
-					}}
-				>
-					{characterToGuess.kana}
-				</motion.span>
-			) : (
-				<span className="text-lg leading-[3rem]">Choose columns to grind</span>
-			)}
+			<CharactersGuess animationControls={animationControls} isError={isError} kana={characterToGuess?.kana} />
 			<span>
 				{stats.correct}/{stats.correct + stats.incorrect}
 			</span>
