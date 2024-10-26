@@ -30,9 +30,10 @@ export const KanaTable = ({
 			<thead>
 				<tr>
 					{selectedColumns.map((isSelected, columnIndex) => {
+						const isEmptyColumn = tableLayout.every((row) => row[columnIndex] === null);
 						return (
 							<th className="border border-background-300 bg-background-200 text-center" key={columnIndex}>
-								{isSelected !== undefined && (
+								{!isEmptyColumn && (
 									<label className="block">
 										<input
 											checked={isSelected}
