@@ -33,9 +33,6 @@ const KanaCell = ({
   );
 };
 
-const getColumnsCount = (characters: Character[]) =>
-  firstBy(characters, [(character) => character.column, "desc"])!.column;
-
 const mapTableCharacters = (
   characters: Character[]
 ): (Character | null)[][] => {
@@ -50,8 +47,8 @@ const mapTableCharacters = (
     (character) => character.row,
     "desc",
   ])!.row;
-  const maxColumn = getColumnsCount(characters);
-
+  const maxColumn = 15;
+  console.log({ maxColumn, maxRow });
   const table: (Character | null)[][] = Array.from({ length: maxRow + 1 }, () =>
     Array(maxColumn + 1).fill(null)
   );
@@ -64,12 +61,18 @@ const mapTableCharacters = (
 };
 
 const mapSelectedColumns = (kanas: Character[]) => {
-  const columnsCount = getColumnsCount(kanas);
-  const selectedColumns: boolean[] = Array(columnsCount).fill(true);
+  const columnsCount = 15;
+  const selectedColumns: boolean[] = Array(columnsCount).fill(undefined);
 
   kanas.forEach((character) => {
-    if (!character.isSelected) {
+    if (character.isSelected === false) {
       selectedColumns[character.column] = false;
+    }
+    if (
+      character.isSelected &&
+      selectedColumns[character.column] === undefined
+    ) {
+      selectedColumns[character.column] = true;
     }
   });
 
@@ -99,7 +102,7 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
 
   const selectedColumns = mapSelectedColumns(tableKanas);
   return (
-    <table className="min-w-full border-collapse border border-gray-300">
+    <table className="w-full min-w-full table-fixed border-collapse border border-gray-300">
       <thead>
         <tr>
           {selectedColumns.map((isSelected, columnIndex) => {
@@ -108,16 +111,18 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
                 className="border border-background-300 bg-background-200 text-center"
                 key={columnIndex}
               >
-                <label className="block">
-                  <input
-                    checked={isSelected}
-                    className="text-blue-600 lg:m-2"
-                    onChange={(e) =>
-                      selectColumn(columnIndex, e.target.checked)
-                    }
-                    type="checkbox"
-                  />
-                </label>
+                {isSelected !== undefined && (
+                  <label className="block">
+                    <input
+                      checked={isSelected}
+                      className="text-blue-600 lg:m-2"
+                      onChange={(e) =>
+                        selectColumn(columnIndex, e.target.checked)
+                      }
+                      type="checkbox"
+                    />
+                  </label>
+                )}
               </th>
             );
           })}

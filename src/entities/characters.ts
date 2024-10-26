@@ -655,7 +655,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 0,
+    column: 1,
     isSelected: false,
     kana: "きゃ",
     romaji: "kya",
@@ -664,7 +664,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 0,
+    column: 1,
     isSelected: false,
     kana: "きゅ",
     romaji: "kyu",
@@ -673,7 +673,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 0,
+    column: 1,
     isSelected: false,
     kana: "きょ",
     romaji: "kyo",
@@ -682,7 +682,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 1,
+    column: 2,
     isSelected: false,
     kana: "しゃ",
     romaji: "sha",
@@ -691,7 +691,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 1,
+    column: 2,
     isSelected: false,
     kana: "しゅ",
     romaji: "shu",
@@ -700,7 +700,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 1,
+    column: 2,
     isSelected: false,
     kana: "しょ",
     romaji: "sho",
@@ -709,7 +709,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 2,
+    column: 3,
     isSelected: false,
     kana: "ちゃ",
     romaji: "cha",
@@ -718,7 +718,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 2,
+    column: 3,
     isSelected: false,
     kana: "ちゅ",
     romaji: "chu",
@@ -727,7 +727,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 2,
+    column: 3,
     isSelected: false,
     kana: "ちょ",
     romaji: "cho",
@@ -736,7 +736,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 3,
+    column: 4,
     isSelected: false,
     kana: "にゃ",
     romaji: "nya",
@@ -745,7 +745,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 3,
+    column: 4,
     isSelected: false,
     kana: "にゅ",
     romaji: "nyu",
@@ -754,7 +754,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 3,
+    column: 4,
     isSelected: false,
     kana: "にょ",
     romaji: "nyo",
@@ -763,7 +763,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 4,
+    column: 5,
     isSelected: false,
     kana: "ひゃ",
     romaji: "hya",
@@ -772,7 +772,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 4,
+    column: 5,
     isSelected: false,
     kana: "ひゅ",
     romaji: "hyu",
@@ -781,7 +781,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 4,
+    column: 5,
     isSelected: false,
     kana: "ひょ",
     romaji: "hyo",
@@ -790,7 +790,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 5,
+    column: 6,
     isSelected: false,
     kana: "みゃ",
     romaji: "mya",
@@ -799,7 +799,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 5,
+    column: 6,
     isSelected: false,
     kana: "みゅ",
     romaji: "myu",
@@ -808,7 +808,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 5,
+    column: 6,
     isSelected: false,
     kana: "みょ",
     romaji: "myo",
@@ -817,7 +817,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 6,
+    column: 7,
     isSelected: false,
     kana: "りゃ",
     romaji: "rya",
@@ -826,7 +826,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 6,
+    column: 7,
     isSelected: false,
     kana: "りゅ",
     romaji: "ryu",
@@ -835,7 +835,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 6,
+    column: 7,
     isSelected: false,
     kana: "りょ",
     romaji: "ryo",
@@ -844,7 +844,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 7,
+    column: 11,
     isSelected: false,
     kana: "ぎゃ",
     romaji: "gya",
@@ -853,7 +853,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 7,
+    column: 11,
     isSelected: false,
     kana: "ぎゅ",
     romaji: "gyu",
@@ -862,7 +862,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 7,
+    column: 11,
     isSelected: false,
     kana: "ぎょ",
     romaji: "gyo",
@@ -871,7 +871,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 8,
+    column: 12,
     isSelected: false,
     kana: "じゃ",
     romaji: "ja",
@@ -880,7 +880,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 8,
+    column: 12,
     isSelected: false,
     kana: "じゅ",
     romaji: "ju",
@@ -889,7 +889,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 8,
+    column: 12,
     isSelected: false,
     kana: "じょ",
     romaji: "jo",
@@ -898,7 +898,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 9,
+    column: 13,
     isSelected: false,
     kana: "ぢゃ",
     romaji: "ja",
@@ -907,7 +907,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 9,
+    column: 13,
     isSelected: false,
     kana: "ぢゅ",
     romaji: "ju",
@@ -916,7 +916,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 9,
+    column: 13,
     isSelected: false,
     kana: "ぢょ",
     romaji: "jo",
@@ -925,7 +925,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 10,
+    column: 14,
     isSelected: false,
     kana: "びゃ",
     romaji: "bya",
@@ -934,7 +934,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 10,
+    column: 14,
     isSelected: false,
     kana: "びゅ",
     romaji: "byu",
@@ -943,7 +943,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 10,
+    column: 14,
     isSelected: false,
     kana: "びょ",
     romaji: "byo",
@@ -952,7 +952,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 11,
+    column: 15,
     isSelected: false,
     kana: "ぴゃ",
     romaji: "pya",
@@ -961,7 +961,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 11,
+    column: 15,
     isSelected: false,
     kana: "ぴゅ",
     romaji: "pyu",
@@ -970,7 +970,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 11,
+    column: 15,
     isSelected: false,
     kana: "ぴょ",
     romaji: "pyo",
@@ -1618,7 +1618,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 0,
+    column: 1,
     isSelected: false,
     kana: "キャ",
     romaji: "kya",
@@ -1627,7 +1627,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 0,
+    column: 1,
     isSelected: false,
     kana: "キュ",
     romaji: "kyu",
@@ -1636,7 +1636,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 0,
+    column: 1,
     isSelected: false,
     kana: "キョ",
     romaji: "kyo",
@@ -1645,7 +1645,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 1,
+    column: 2,
     isSelected: false,
     kana: "シャ",
     romaji: "sha",
@@ -1654,7 +1654,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 1,
+    column: 2,
     isSelected: false,
     kana: "シュ",
     romaji: "shu",
@@ -1663,7 +1663,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 1,
+    column: 2,
     isSelected: false,
     kana: "ショ",
     romaji: "sho",
@@ -1672,7 +1672,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 2,
+    column: 3,
     isSelected: false,
     kana: "チャ",
     romaji: "cha",
@@ -1681,7 +1681,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 2,
+    column: 3,
     isSelected: false,
     kana: "チュ",
     romaji: "chu",
@@ -1690,7 +1690,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 2,
+    column: 3,
     isSelected: false,
     kana: "チョ",
     romaji: "cho",
@@ -1699,7 +1699,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 3,
+    column: 4,
     isSelected: false,
     kana: "ニャ",
     romaji: "nya",
@@ -1708,7 +1708,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 3,
+    column: 4,
     isSelected: false,
     kana: "ニュ",
     romaji: "nyu",
@@ -1717,7 +1717,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 3,
+    column: 4,
     isSelected: false,
     kana: "ニョ",
     romaji: "nyo",
@@ -1726,7 +1726,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 4,
+    column: 5,
     isSelected: false,
     kana: "ヒャ",
     romaji: "hya",
@@ -1735,7 +1735,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 4,
+    column: 5,
     isSelected: false,
     kana: "ヒュ",
     romaji: "hyu",
@@ -1744,7 +1744,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 4,
+    column: 5,
     isSelected: false,
     kana: "ヒョ",
     romaji: "hyo",
@@ -1753,7 +1753,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 5,
+    column: 6,
     isSelected: false,
     kana: "ミャ",
     romaji: "mya",
@@ -1762,7 +1762,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 5,
+    column: 6,
     isSelected: false,
     kana: "ミュ",
     romaji: "myu",
@@ -1771,7 +1771,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 5,
+    column: 6,
     isSelected: false,
     kana: "ミョ",
     romaji: "myo",
@@ -1780,7 +1780,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 6,
+    column: 7,
     isSelected: false,
     kana: "リャ",
     romaji: "rya",
@@ -1789,7 +1789,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 6,
+    column: 7,
     isSelected: false,
     kana: "リュ",
     romaji: "ryu",
@@ -1798,7 +1798,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 6,
+    column: 7,
     isSelected: false,
     kana: "リョ",
     romaji: "ryo",
@@ -1807,7 +1807,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 7,
+    column: 11,
     isSelected: false,
     kana: "ギャ",
     romaji: "gya",
@@ -1816,7 +1816,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 7,
+    column: 11,
     isSelected: false,
     kana: "ギュ",
     romaji: "gyu",
@@ -1825,7 +1825,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 7,
+    column: 11,
     isSelected: false,
     kana: "ギョ",
     romaji: "gyo",
@@ -1834,7 +1834,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 8,
+    column: 12,
     isSelected: false,
     kana: "ジャ",
     romaji: "ja",
@@ -1843,7 +1843,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 8,
+    column: 12,
     isSelected: false,
     kana: "ジュ",
     romaji: "ju",
@@ -1852,7 +1852,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 8,
+    column: 12,
     isSelected: false,
     kana: "ジョ",
     romaji: "jo",
@@ -1861,7 +1861,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 9,
+    column: 13,
     isSelected: false,
     kana: "ヂャ",
     romaji: "ja",
@@ -1870,7 +1870,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 9,
+    column: 13,
     isSelected: false,
     kana: "ヂュ",
     romaji: "ju",
@@ -1879,7 +1879,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 9,
+    column: 13,
     isSelected: false,
     kana: "ヂョ",
     romaji: "jo",
@@ -1888,7 +1888,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 10,
+    column: 14,
     isSelected: false,
     kana: "ビャ",
     romaji: "bya",
@@ -1897,7 +1897,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 10,
+    column: 14,
     isSelected: false,
     kana: "ビュ",
     romaji: "byu",
@@ -1906,7 +1906,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 10,
+    column: 14,
     isSelected: false,
     kana: "ビョ",
     romaji: "byo",
@@ -1915,7 +1915,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 11,
+    column: 15,
     isSelected: false,
     kana: "ピャ",
     romaji: "pya",
@@ -1924,7 +1924,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 11,
+    column: 15,
     isSelected: false,
     kana: "ピュ",
     romaji: "pyu",
@@ -1933,7 +1933,7 @@ export const kanas: Character[] = [
     weight: 1,
   },
   {
-    column: 11,
+    column: 15,
     isSelected: false,
     kana: "ピョ",
     romaji: "pyo",
