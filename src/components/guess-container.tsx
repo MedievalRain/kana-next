@@ -60,8 +60,6 @@ export const GuessContainer = () => {
     }
 
     if (inputValue === characterToGuess.romaji) {
-      console.log({ characterToGuess, inputValue });
-
       setCharacters((draft) => {
         const character = draft.find(
           ({ kana }) => kana === characterToGuess.kana
