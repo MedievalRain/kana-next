@@ -1,8 +1,8 @@
 "use client";
 
-import { ChangeEvent,  useRef } from "react";
+import { ChangeEvent, RefObject, useRef } from "react";
 
-export const GuessInput = ({ setValue, value }: { setValue: (value: string) => void; value: string }) => {
+export const GuessInput = ({ ref, setValue, value }: { ref: RefObject<HTMLInputElement>; setValue: (value: string) => void; value: string }) => {
 	const oldValue = useRef("");
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const typedValue = e.target.value;
@@ -19,6 +19,7 @@ export const GuessInput = ({ setValue, value }: { setValue: (value: string) => v
 			autoComplete="off"
 			className="rounded-md border border-gray-300 bg-background-200 px-2 py-1"
 			onChange={onChange}
+			ref={ref}
 			type="text"
 			value={value}
 		/>

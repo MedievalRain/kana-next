@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { cn } from "@/utils/cn";
 import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { GuessInput } from "./guess-input";
@@ -77,6 +77,7 @@ export const GuessContainer = () => {
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = getSelectedKanas(selectedColumns);
 	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const onInputChange = (newInputValue: string) => {
 		if (!characterToGuess) {
@@ -102,6 +103,13 @@ export const GuessContainer = () => {
 			setInputValue("");
 			setStats((v) => ({ ...v, incorrect: v.incorrect + 1 }));
 			setIsError(true);
+			const element = inputRef.current!;
+			element.disabled = true;
+
+			setTimeout(() => {
+				element.disabled = false;
+				element.focus();
+			}, 500);
 		}
 	};
 
@@ -121,7 +129,7 @@ export const GuessContainer = () => {
 			<span>
 				{stats.correct}/{stats.correct + stats.incorrect}
 			</span>
-			<GuessInput setValue={onInputChange} value={inputValue} />
+			<GuessInput ref={inputRef} setValue={onInputChange} value={inputValue} />
 		</div>
 	);
 };
