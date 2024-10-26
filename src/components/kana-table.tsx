@@ -1,10 +1,5 @@
-"use client";
-
-import { type Character, KanaType } from "@/entities/characters";
-import { kanasAtom } from "@/entities/characters-state";
+import { allCharactersKV } from "@/entities/characters";
 import { cn } from "@/utils/cn";
-import { atom, useAtom, useSetAtom } from "jotai";
-import { useMemo } from "react";
 
 const KanaCell = ({ isSelected, kana, romaji }: { isSelected?: boolean; kana?: string; romaji?: string }) => {
 	return (
@@ -21,58 +16,15 @@ const KanaCell = ({ isSelected, kana, romaji }: { isSelected?: boolean; kana?: s
 	);
 };
 
-const mapTableCharacters = (characters: Character[]): (Character | null)[][] => {
-	const sortedCharacters = characters.sort((a, b) => {
-		if (a.row === b.row) {
-			return a.column - b.column;
-		}
-		return a.row - b.row;
-	});
-
-	const maxRow = 4;
-	const maxColumn = 15;
-	const table: (Character | null)[][] = Array.from({ length: maxRow + 1 }, () => Array(maxColumn + 1).fill(null));
-
-	sortedCharacters.forEach((character) => {
-		table[character.row][character.column] = character;
-	});
-
-	return table;
-};
-
-const mapSelectedColumns = (kanas: Character[]) => {
-	const columnsCount = 15;
-	const selectedColumns: boolean[] = Array(columnsCount).fill(undefined);
-
-	kanas.forEach((character) => {
-		if (character.isSelected === false) {
-			selectedColumns[character.column] = false;
-		}
-		if (character.isSelected && selectedColumns[character.column] === undefined) {
-			selectedColumns[character.column] = true;
-		}
-	});
-
-	return selectedColumns;
-};
-
-export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
-	const setKanas = useSetAtom(kanasAtom);
-	const [tableKanas] = useAtom(useMemo(() => atom((get) => get(kanasAtom).filter((kana) => kana.type === kanaType)), [kanaType]));
-	const mappedKanas = mapTableCharacters(tableKanas);
-
-	const selectColumn = (index: number, isSelected: boolean) => {
-		setKanas((draft) => {
-			draft.forEach((character) => {
-				if (character.column === index && character.type === kanaType) {
-					character.isSelected = isSelected;
-				}
-			});
-		});
-	};
-
-	const selectedColumns = mapSelectedColumns(tableKanas);
-
+export const KanaTable = ({
+	selectColumn,
+	selectedColumns,
+	tableLayout,
+}: {
+	selectColumn: (columnIndex: number, value: boolean) => void;
+	selectedColumns: boolean[];
+	tableLayout: (null | string)[][];
+}) => {
 	return (
 		<table className="w-full min-w-full table-fixed border-collapse border border-gray-300">
 			<thead>
@@ -96,20 +48,23 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{mappedKanas.map((row, rowIndex) => (
-					<tr key={rowIndex}>
-						{row.map((character, columnIndex) => {
-							return (
-								<KanaCell
-									isSelected={selectedColumns[columnIndex]}
-									kana={character?.kana}
-									key={`${rowIndex}-${columnIndex}`}
-									romaji={character?.romaji}
-								/>
-							);
-						})}
-					</tr>
-				))}
+				{tableLayout.map((row, rowIndex) => {
+					return (
+						<tr key={rowIndex}>
+							{row.map((kana, columnIndex) => {
+								const character = kana ? allCharactersKV[kana] : undefined;
+								return (
+									<KanaCell
+										isSelected={selectedColumns[columnIndex] === true}
+										kana={character?.kana}
+										key={columnIndex}
+										romaji={character?.romaji}
+									/>
+								);
+							})}
+						</tr>
+					);
+				})}
 			</tbody>
 		</table>
 	);
