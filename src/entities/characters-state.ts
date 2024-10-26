@@ -3,7 +3,7 @@ import { withImmer } from "jotai-immer";
 
 import { allCharacters, KanaType } from "./characters";
 
-type CharacterState = {
+export type CharacterState = {
 	isSelected: boolean;
 	kana: string;
 	weight: number;

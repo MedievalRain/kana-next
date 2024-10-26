@@ -6,7 +6,7 @@ export default function Home() {
 		<div>
 			<main className="w-full px-2">
 				<section className="mx-auto max-w-[960px] py-12">
-					{/* <GuessContainer /> */}
+					<GuessContainer />
 					<KanaPicker />
 				</section>
 			</main>
