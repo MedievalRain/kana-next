@@ -4,11 +4,10 @@ import { withImmer } from "jotai-immer";
 import { allCharacters, KanaType } from "./characters";
 
 export type CharacterState = {
-	isSelected: boolean;
 	kana: string;
 	weight: number;
 };
-const defaultLearningState: CharacterState[] = allCharacters.map(({ kana }) => ({ isSelected: false, kana, weight: 1 }));
+const defaultLearningState: CharacterState[] = allCharacters.map(({ kana }) => ({ kana, weight: 1 }));
 
 const storageLearningStateAtom = atomWithStorage("learningState", defaultLearningState);
 export const learningStateAtom = withImmer(storageLearningStateAtom);
