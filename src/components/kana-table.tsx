@@ -48,7 +48,6 @@ const mapTableCharacters = (
     "desc",
   ])!.row;
   const maxColumn = 15;
-  console.log({ maxColumn, maxRow });
   const table: (Character | null)[][] = Array.from({ length: maxRow + 1 }, () =>
     Array(maxColumn + 1).fill(null)
   );
