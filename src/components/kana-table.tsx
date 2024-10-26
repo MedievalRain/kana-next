@@ -5,7 +5,6 @@ import { kanasAtom } from "@/entities/characters-state";
 import { cn } from "@/utils/cn";
 import { atom, useAtom, useSetAtom } from "jotai";
 import { useMemo } from "react";
-import { firstBy } from "remeda";
 
 const KanaCell = ({ isSelected, kana, romaji }: { isSelected?: boolean; kana?: string; romaji?: string }) => {
 	return (
@@ -30,7 +29,7 @@ const mapTableCharacters = (characters: Character[]): (Character | null)[][] => 
 		return a.row - b.row;
 	});
 
-	const maxRow = firstBy(characters, [(character) => character.row, "desc"])!.row;
+	const maxRow = 4;
 	const maxColumn = 15;
 	const table: (Character | null)[][] = Array.from({ length: maxRow + 1 }, () => Array(maxColumn + 1).fill(null));
 
@@ -73,6 +72,7 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
 	};
 
 	const selectedColumns = mapSelectedColumns(tableKanas);
+
 	return (
 		<table className="w-full min-w-full table-fixed border-collapse border border-gray-300">
 			<thead>
