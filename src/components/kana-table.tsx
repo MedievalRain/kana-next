@@ -133,11 +133,7 @@ export const KanaTable = ({ kanaType }: { kanaType: KanaType }) => {
             {row.map((character, columnIndex) => {
               return (
                 <KanaCell
-                  isSelected={
-                    character
-                      ? character.isSelected
-                      : selectedColumns[columnIndex]
-                  }
+                  isSelected={selectedColumns[columnIndex]}
                   kana={character?.kana}
                   key={`${rowIndex}-${columnIndex}`}
                   romaji={character?.romaji}
