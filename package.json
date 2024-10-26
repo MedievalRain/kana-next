@@ -1,43 +1,42 @@
 {
-  "name": "kana-next",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "babel-plugin-react-compiler": "^19.0.0-beta-8a03594-20241020",
-    "clsx": "^2.1.1",
-    "immer": "^10.1.1",
-    "jotai": "^2.10.1",
-    "jotai-immer": "^0.4.1",
-    "jotai-optics": "^0.4.0",
-    "next": "^15.0.2-canary.6",
-    "react": "19.0.0-rc-1631855f-20241023",
-    "react-dom": "19.0.0-rc-1631855f-20241023",
-    "remeda": "^2.16.0",
-    "tailwind-merge": "^2.5.4"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.13.0",
-    "@next/eslint-plugin-next": "^15.0.1",
-    "@types/node": "^22.8.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "eslint": "^9.13.0",
-    "eslint-config-next": "^15.0.1",
-    "eslint-plugin-perfectionist": "^3.9.1",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-tailwindcss": "^3.17.5",
-    "globals": "^15.11.0",
-    "postcss": "^8.4.47",
-    "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.14",
-    "typescript": "^5.6.3",
-    "typescript-eslint": "^8.11.0"
-  }
+	"name": "kana-next",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"babel-plugin-react-compiler": "^19.0.0-beta-8a03594-20241020",
+		"clsx": "^2.1.1",
+		"immer": "^10.1.1",
+		"jotai": "^2.10.1",
+		"jotai-immer": "^0.4.1",
+		"next": "^15.0.2-canary.6",
+		"react": "19.0.0-rc-1631855f-20241023",
+		"react-dom": "19.0.0-rc-1631855f-20241023",
+		"remeda": "^2.16.0",
+		"tailwind-merge": "^2.5.4"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.1.0",
+		"@eslint/js": "^9.13.0",
+		"@next/eslint-plugin-next": "^15.0.1",
+		"@types/node": "^22.8.1",
+		"@types/react": "^18.3.12",
+		"@types/react-dom": "^18.3.1",
+		"eslint": "^9.13.0",
+		"eslint-config-next": "^15.0.1",
+		"eslint-plugin-perfectionist": "^3.9.1",
+		"eslint-plugin-react": "^7.37.2",
+		"eslint-plugin-tailwindcss": "^3.17.5",
+		"globals": "^15.11.0",
+		"postcss": "^8.4.47",
+		"prettier": "^3.3.3",
+		"tailwindcss": "^3.4.14",
+		"typescript": "^5.6.3",
+		"typescript-eslint": "^8.11.0"
+	}
 }
