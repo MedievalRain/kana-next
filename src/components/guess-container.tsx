@@ -79,11 +79,10 @@ export const GuessContainer = () => {
 	const selectedKanas = getSelectedKanas(selectedColumns);
 	const lastCharacterToGuess = useRef<(Character & CharacterState) | null>(null);
 	const characterToGuess = isError ? lastCharacterToGuess.current : getCharacterToGuess(selectedKanas, learningState);
-	const inputRef = useRef<HTMLInputElement>(null);
 
 	const animationControls = useAnimation();
 
-	const onInputChange = (newInputValue: string) => {
+	const onInputChange = async (newInputValue: string) => {
 		if (!characterToGuess) {
 			return;
 		}
@@ -111,21 +110,14 @@ export const GuessContainer = () => {
 			if (!lastCharacterToGuess.current) {
 				lastCharacterToGuess.current = characterToGuess;
 			}
-			const element = inputRef.current!;
-			element.disabled = true;
-			animationControls.start({
+
+			await animationControls.start({
 				transition: {
 					duration: 0.5,
 					ease: "easeInOut",
-					repeat: Infinity,
 				},
 				x: [0, -5, 5, -5, 5, -5, 5, -5, 5, 0],
 			});
-			setTimeout(() => {
-				element.disabled = false;
-				element.focus();
-				animationControls.stop();
-			}, 500);
 		}
 	};
 
@@ -135,7 +127,7 @@ export const GuessContainer = () => {
 			<span>
 				{stats.correct}/{stats.correct + stats.incorrect}
 			</span>
-			<GuessInput ref={inputRef} setValue={onInputChange} value={inputValue} />
+			<GuessInput setValue={onInputChange} value={inputValue} />
 		</div>
 	);
 };
