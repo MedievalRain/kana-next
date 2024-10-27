@@ -13,7 +13,7 @@ export const GuessInput = ({ ref, setValue, value }: { ref: RefObject<HTMLInputE
 	return (
 		<input
 			autoComplete="off"
-			className="rounded-md border border-gray-300 bg-background-200 px-2 py-1"
+			className="rounded-md border border-gray-300  bg-background-200 px-2 py-1 outline-none ring-0 ring-transparent transition-all duration-200 focus:border-transparent focus:ring-2  focus:ring-gray-300"
 			onChange={onChange}
 			ref={ref}
 			type="text"
