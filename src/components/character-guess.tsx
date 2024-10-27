@@ -78,7 +78,7 @@ export const CharactersGuess = ({ isError, kana }: { isError: number; kana?: str
 
 	if (kana) {
 		return (
-			<div className="flex gap-2">
+			<div className="flex h-12 gap-2">
 				<motion.span
 					animate={animationControls}
 					className={cn("text-5xl font-bold", { "text-red-500": isError })}
