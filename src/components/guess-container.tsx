@@ -71,7 +71,7 @@ const getCharacterToGuess = (selectedKanas: string[], learningState: CharacterSt
 };
 
 export const GuessContainer = () => {
-	const [isError, setIsError] = useState(0);
+	const [isError, setIsError] = useState(0); // Using timestamps for errors to detect multiple errors in a row
 	const [stats, setStats] = useState({ correct: 0, incorrect: 0 });
 	const [inputValue, setInputValue] = useState("");
 	const [learningState, setLearningState] = useAtom(learningStateAtom);
