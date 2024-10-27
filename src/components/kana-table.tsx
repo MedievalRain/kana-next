@@ -11,7 +11,7 @@ const KanaCell = ({ isSelected, kana, romaji }: { isSelected?: boolean; kana?: s
 			{kana && romaji ? (
 				<div className="flex flex-col">
 					<span>{kana}</span>
-					<span className="text-xs text-gray-500 sm:text-sm">{romaji}</span>
+					<span className="text-sm text-gray-500">{romaji}</span>
 				</div>
 			) : (
 				<div className="h-[calc(1.5rem+1.25rem)]" />
