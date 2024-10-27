@@ -76,7 +76,7 @@ export const GuessContainer = () => {
 	const [inputValue, setInputValue] = useState("");
 	const [learningState, setLearningState] = useAtom(learningStateAtom);
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
-	const selectedKanas = getSelectedKanas(selectedColumns);
+	const selectedKanas = useMemo(() => getSelectedKanas(selectedColumns), [selectedColumns]);
 	const lastCharacterToGuess = useRef<(Character & CharacterState) | null>(null);
 	const characterToGuess = useMemo(
 		() => (isError ? lastCharacterToGuess.current : getCharacterToGuess(selectedKanas, learningState)),
