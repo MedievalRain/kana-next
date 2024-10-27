@@ -8,7 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
-import { GuessInput } from "./guess-input";
+import { RomajiInput } from "./romaji-input";
 
 const increaseWeight = (currentWeight: number) => {
 	return Math.min(Math.max(currentWeight * 1.5, 2), Number.MAX_SAFE_INTEGER);
@@ -125,7 +125,7 @@ export const GuessContainer = () => {
 			<span>
 				{stats.correct}/{stats.correct + stats.incorrect}
 			</span>
-			<GuessInput disabled={!characterToGuess} setValue={onInputChange} value={inputValue} />
+			<RomajiInput disabled={!characterToGuess} setValue={onInputChange} value={inputValue} />
 		</div>
 	);
 };

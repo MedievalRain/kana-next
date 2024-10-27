@@ -2,7 +2,7 @@
 
 import { ChangeEvent } from "react";
 
-export const GuessInput = ({ disabled, setValue, value }: { disabled: boolean; setValue: (value: string) => void; value: string }) => {
+export const RomajiInput = ({ disabled, setValue, value }: { disabled: boolean; setValue: (value: string) => void; value: string }) => {
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const typedValue = e.target.value;
 		const cleanedValue = typedValue.replace(/[^a-zA-Z\s]/g, "");
