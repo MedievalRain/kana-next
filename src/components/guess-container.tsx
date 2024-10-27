@@ -14,7 +14,11 @@ import { CharactersGuess } from "./character-guess";
 import { RomajiInput } from "./romaji-input";
 
 const increaseWeight = (currentWeight: number) => {
-	return Math.min(currentWeight * 2, Number.MAX_SAFE_INTEGER / allCharacters.length);
+	return Math.floor(Math.min(currentWeight * 2, Number.MAX_SAFE_INTEGER / allCharacters.length));
+};
+
+const decreaseWeight = (currentWeight: number) => {
+	return Math.floor(Math.max(currentWeight / 2, 1));
 };
 
 const calculateCDF = (characters: CharacterState[]) => {
@@ -107,7 +111,7 @@ export const GuessContainer = () => {
 		} else {
 			setLearningState((draft) => {
 				const character = draft.find(({ kana }) => kana === characterToGuess.kana)!;
-				character.weight = 1;
+				character.weight = decreaseWeight(character.weight);
 			});
 
 			setInputValue("");

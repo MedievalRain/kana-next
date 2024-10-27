@@ -9,7 +9,7 @@ export type CharacterState = {
 	kana: string;
 	weight: number;
 };
-const defaultLearningState: CharacterState[] = allCharacters.map(({ kana }) => ({ kana, weight: 1 }));
+const defaultLearningState: CharacterState[] = allCharacters.map(({ kana }) => ({ kana, weight: 2 ** 32 }));
 
 const storageLearningStateAtom = atomWithStorage("learningState", defaultLearningState);
 export const learningStateAtom = withImmer(storageLearningStateAtom);
