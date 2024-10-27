@@ -122,10 +122,35 @@ export const GuessContainer = () => {
 	};
 
 	useEffect(() => {
-		if (!isError) {
+		const setNewCharacterToGuess = async () => {
+			await animationControls.start({
+				opacity: 0,
+				scale: 0.8,
+				transition: {
+					duration: 0.1,
+					ease: "easeInOut",
+				},
+				x: -50,
+			});
 			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
+			animationControls.set({
+				x: 50,
+			});
+			await animationControls.start({
+				opacity: 1,
+				scale: 1,
+				transition: {
+					duration: 0.1,
+					ease: "easeInOut",
+				},
+				x: 1,
+			});
+		};
+
+		if (!isError) {
+			setNewCharacterToGuess();
 		}
-	}, [isError, learningState, selectedKanas]);
+	}, [animationControls, isError, learningState, selectedKanas]);
 
 	return (
 		<div className="flex flex-col items-center gap-2">
