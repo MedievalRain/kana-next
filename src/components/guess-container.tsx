@@ -18,7 +18,7 @@ const increaseWeight = (currentWeight: number) => {
 };
 
 const decreaseWeight = (currentWeight: number) => {
-	return Math.floor(Math.max(currentWeight / 2, 1));
+	return Math.floor(Math.max(currentWeight / 8, 1));
 };
 
 const calculateCDF = (characters: CharacterState[]) => {
