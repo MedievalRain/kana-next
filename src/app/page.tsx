@@ -5,7 +5,7 @@ export default function Home() {
 	return (
 		<div>
 			<main className="w-full px-2">
-				<section className="mx-auto max-w-[960px] py-12">
+				<section className="mx-auto max-w-[960px] space-y-4 py-12">
 					<GuessContainer />
 					<KanaPicker />
 				</section>
