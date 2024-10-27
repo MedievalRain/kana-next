@@ -125,7 +125,7 @@ export const GuessContainer = () => {
 			<span>
 				{stats.correct}/{stats.correct + stats.incorrect}
 			</span>
-			<GuessInput setValue={onInputChange} value={inputValue} />
+			<GuessInput disabled={!characterToGuess} setValue={onInputChange} value={inputValue} />
 		</div>
 	);
 };
