@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
@@ -78,7 +78,10 @@ export const GuessContainer = () => {
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = getSelectedKanas(selectedColumns);
 	const lastCharacterToGuess = useRef<(Character & CharacterState) | null>(null);
-	const characterToGuess = isError ? lastCharacterToGuess.current : getCharacterToGuess(selectedKanas, learningState);
+	const characterToGuess = useMemo(
+		() => (isError ? lastCharacterToGuess.current : getCharacterToGuess(selectedKanas, learningState)),
+		[isError, learningState, selectedKanas]
+	);
 
 	const animationControls = useAnimation();
 
