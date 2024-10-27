@@ -3,7 +3,7 @@
 import type { Character, KanaType } from "@/entities/characters";
 import type { CharacterState } from "@/entities/characters-state";
 
-import { allCharactersKV, hiraganaComboTable, hiraganaTable, katakanaComboTable, katakanaTable } from "@/entities/characters";
+import { allCharacters, allCharactersKV, hiraganaComboTable, hiraganaTable, katakanaComboTable, katakanaTable } from "@/entities/characters";
 import { learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
@@ -14,7 +14,7 @@ import { CharactersGuess } from "./character-guess";
 import { RomajiInput } from "./romaji-input";
 
 const increaseWeight = (currentWeight: number) => {
-	return Math.min(Math.max(currentWeight * 1.5, 2), Number.MAX_SAFE_INTEGER);
+	return Math.min(currentWeight * 2, Number.MAX_SAFE_INTEGER / allCharacters.length);
 };
 
 const calculateCDF = (characters: CharacterState[]) => {
