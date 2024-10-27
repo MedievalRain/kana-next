@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
@@ -71,19 +71,18 @@ const getCharacterToGuess = (selectedKanas: string[], learningState: CharacterSt
 };
 
 export const GuessContainer = () => {
-	const [isError, setIsError] = useState(false);
+	const [isError, setIsError] = useState(0);
 	const [stats, setStats] = useState({ correct: 0, incorrect: 0 });
 	const [inputValue, setInputValue] = useState("");
 	const [learningState, setLearningState] = useAtom(learningStateAtom);
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = useMemo(() => getSelectedKanas(selectedColumns), [selectedColumns]);
 	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
-	const isErrorAnimationRef = useRef(false);
 
 	const animationControls = useAnimation();
 
 	const onInputChange = async (newInputValue: string) => {
-		if (!characterToGuess || isErrorAnimationRef.current) {
+		if (!characterToGuess || Date.now() - isError < 500) {
 			return;
 		}
 
@@ -94,7 +93,7 @@ export const GuessContainer = () => {
 			});
 
 			setInputValue("");
-			setIsError(false);
+			setIsError(0);
 			setStats((v) => ({ ...v, correct: v.correct + 1 }));
 		} else if (characterToGuess.romaji.startsWith(newInputValue)) {
 			setInputValue(newInputValue);
@@ -106,55 +105,19 @@ export const GuessContainer = () => {
 
 			setInputValue("");
 			setStats((v) => ({ ...v, incorrect: v.incorrect + 1 }));
-			setIsError(true);
-			isErrorAnimationRef.current = true;
-			setTimeout(() => {
-				isErrorAnimationRef.current = false;
-			}, 500);
-			await animationControls.start({
-				transition: {
-					duration: 0.5,
-					ease: "easeInOut",
-				},
-				x: [0, -5, 5, -5, 5, -5, 5, -5, 5, 0],
-			});
+			setIsError(Date.now());
 		}
 	};
 
 	useEffect(() => {
-		const setNewCharacterToGuess = async () => {
-			await animationControls.start({
-				opacity: 0,
-				scale: 0.8,
-				transition: {
-					duration: 0.1,
-					ease: "easeInOut",
-				},
-				x: -50,
-			});
-			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
-			animationControls.set({
-				x: 50,
-			});
-			await animationControls.start({
-				opacity: 1,
-				scale: 1,
-				transition: {
-					duration: 0.1,
-					ease: "easeInOut",
-				},
-				x: 1,
-			});
-		};
-
 		if (!isError) {
-			setNewCharacterToGuess();
+			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
 		}
 	}, [animationControls, isError, learningState, selectedKanas]);
 
 	return (
 		<div className="flex flex-col items-center gap-2">
-			<CharactersGuess animationControls={animationControls} isError={isError} kana={characterToGuess?.kana} />
+			<CharactersGuess isError={isError} kana={characterToGuess?.kana} />
 			<span>
 				{stats.correct}/{stats.correct + stats.incorrect}
 			</span>

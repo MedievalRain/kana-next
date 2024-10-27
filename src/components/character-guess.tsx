@@ -1,15 +1,59 @@
-import { cn } from "@/utils/cn";
-import { type AnimationControls, motion } from "framer-motion";
+"use client";
 
-export const CharactersGuess = ({
-	animationControls,
-	isError,
-	kana,
-}: {
-	animationControls: AnimationControls;
-	isError: boolean;
-	kana?: string;
-}) => {
+import { cn } from "@/utils/cn";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
+
+export const CharactersGuess = ({ isError, kana }: { isError: number; kana?: string }) => {
+	const [displayKana, setDisplayKana] = useState(kana);
+	const animationControls = useAnimation();
+
+	useEffect(() => {
+		if (isError === 0) {
+			return;
+		}
+
+		animationControls.start({
+			transition: {
+				duration: 0.5,
+				ease: "easeInOut",
+			},
+			x: [0, -5, 5, -5, 5, -5, 5, -5, 5, 0],
+		});
+	}, [animationControls, isError]);
+
+	useEffect(() => {
+		const animateKanaUpdate = async () => {
+			await animationControls.start({
+				opacity: 0,
+				scale: 0.8,
+				transition: {
+					duration: 0.1,
+					ease: "easeInOut",
+				},
+				x: -50,
+			});
+			setDisplayKana(kana);
+			animationControls.set({
+				x: 50,
+			});
+			await animationControls.start({
+				opacity: 1,
+				scale: 1,
+				transition: {
+					duration: 0.1,
+					ease: "easeInOut",
+				},
+				x: 1,
+			});
+		};
+		if (!displayKana && kana) {
+			setDisplayKana(kana);
+		} else {
+			animateKanaUpdate();
+		}
+	}, [animationControls, displayKana, kana]);
+
 	if (kana) {
 		return (
 			<div className="flex gap-2">
@@ -21,7 +65,7 @@ export const CharactersGuess = ({
 						ease: "easeInOut",
 					}}
 				>
-					{kana}
+					{displayKana}
 				</motion.span>
 			</div>
 		);
