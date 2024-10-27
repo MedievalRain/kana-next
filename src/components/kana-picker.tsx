@@ -18,7 +18,7 @@ export const KanaPicker = () => {
 	return (
 		<ul className="flex flex-col gap-8">
 			<li>
-				<h3 className="text-xl font-semibold">Hiragana ひらがな</h3>
+				<h3 className="text-lg font-semibold sm:text-xl">Hiragana ひらがな</h3>
 				<div className="mt-1.5">
 					<KanaTable
 						selectColumn={(columnIndex, value) => selectColumn(columnIndex, value, "hiragana")}
@@ -28,7 +28,7 @@ export const KanaPicker = () => {
 				</div>
 			</li>
 			<li>
-				<h3 className="text-xl font-semibold">Hiragana combinations ひらがな拗音</h3>
+				<h3 className="text-lg font-semibold sm:text-xl">Hiragana combinations ひらがな拗音</h3>
 				<div className="mt-1.5">
 					<KanaTable
 						selectColumn={(columnIndex, value) => selectColumn(columnIndex, value, "hiragana-combos")}
@@ -38,7 +38,7 @@ export const KanaPicker = () => {
 				</div>
 			</li>
 			<li>
-				<h3 className="text-xl font-semibold">Katakana カタカナ</h3>
+				<h3 className="text-lg font-semibold sm:text-xl">Katakana カタカナ</h3>
 				<div className="mt-1.5">
 					<KanaTable
 						selectColumn={(columnIndex, value) => selectColumn(columnIndex, value, "katakana")}
@@ -48,7 +48,7 @@ export const KanaPicker = () => {
 				</div>
 			</li>
 			<li>
-				<h3 className="text-xl font-semibold">Katakana combinations カタカナ拗音</h3>
+				<h3 className="text-lg font-semibold sm:text-xl">Katakana combinations カタカナ拗音</h3>
 				<div className="mt-1.5">
 					<KanaTable
 						selectColumn={(columnIndex, value) => selectColumn(columnIndex, value, "katakana-combos")}
