@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
@@ -77,8 +77,10 @@ export const GuessContainer = () => {
 	const [learningState, setLearningState] = useAtom(learningStateAtom);
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = getSelectedKanas(selectedColumns);
-	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
+	const lastCharacterToGuess = useRef<(Character & CharacterState) | null>(null);
+	const characterToGuess = isError ? lastCharacterToGuess.current : getCharacterToGuess(selectedKanas, learningState);
 	const inputRef = useRef<HTMLInputElement>(null);
+
 	const animationControls = useAnimation();
 
 	const onInputChange = (newInputValue: string) => {
@@ -91,7 +93,7 @@ export const GuessContainer = () => {
 				const character = draft.find(({ kana }) => kana === characterToGuess.kana)!;
 				character.weight = increaseWeight(character.weight);
 			});
-
+			lastCharacterToGuess.current = characterToGuess;
 			setInputValue("");
 			setIsError(false);
 			setStats((v) => ({ ...v, correct: v.correct + 1 }));
@@ -102,9 +104,13 @@ export const GuessContainer = () => {
 				const character = draft.find(({ kana }) => kana === characterToGuess.kana)!;
 				character.weight = character.weight / 2;
 			});
+
 			setInputValue("");
 			setStats((v) => ({ ...v, incorrect: v.incorrect + 1 }));
 			setIsError(true);
+			if (!lastCharacterToGuess.current) {
+				lastCharacterToGuess.current = characterToGuess;
+			}
 			const element = inputRef.current!;
 			element.disabled = true;
 			animationControls.start({
@@ -122,12 +128,6 @@ export const GuessContainer = () => {
 			}, 500);
 		}
 	};
-
-	useEffect(() => {
-		if (!isError) {
-			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
-		}
-	}, [isError, learningState, selectedKanas]);
 
 	return (
 		<div className="flex flex-col items-center gap-2">
