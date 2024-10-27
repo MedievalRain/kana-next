@@ -104,7 +104,7 @@ export const GuessContainer = () => {
 		} else {
 			setLearningState((draft) => {
 				const character = draft.find(({ kana }) => kana === characterToGuess.kana)!;
-				character.weight = character.weight / 2;
+				character.weight = 1;
 			});
 
 			setInputValue("");
