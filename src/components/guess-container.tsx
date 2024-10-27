@@ -1,7 +1,10 @@
 "use client";
 
-import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType, katakanaComboTable, katakanaTable } from "@/entities/characters";
-import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
+import type { Character, KanaType } from "@/entities/characters";
+import type { CharacterState } from "@/entities/characters-state";
+
+import { allCharactersKV, hiraganaComboTable, hiraganaTable, katakanaComboTable, katakanaTable } from "@/entities/characters";
+import { learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
 import { useEffect, useMemo, useRef, useState } from "react";

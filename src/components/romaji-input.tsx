@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 
 export const RomajiInput = ({ disabled, setValue, value }: { disabled: boolean; setValue: (value: string) => void; value: string }) => {
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {

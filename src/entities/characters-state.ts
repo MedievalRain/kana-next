@@ -1,7 +1,9 @@
 import { atomWithStorage } from "jotai/utils";
 import { withImmer } from "jotai-immer";
 
-import { allCharacters, KanaType } from "./characters";
+import type { KanaType } from "./characters";
+
+import { allCharacters } from "./characters";
 
 export type CharacterState = {
 	kana: string;

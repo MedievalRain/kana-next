@@ -1,6 +1,8 @@
 "use client";
 
-import { hiraganaComboTable, hiraganaTable, KanaType, katakanaComboTable, katakanaTable } from "@/entities/characters";
+import type { KanaType } from "@/entities/characters";
+
+import { hiraganaComboTable, hiraganaTable, katakanaComboTable, katakanaTable } from "@/entities/characters";
 import { selectedColumnsAtom } from "@/entities/characters-state";
 import { useAtom } from "jotai";
 
