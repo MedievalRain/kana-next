@@ -1,7 +1,6 @@
 {
 	"name": "kana-next",
 	"version": "0.2.0",
-	"private": true,
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -43,5 +42,12 @@
 	"overrides": {
 		"@types/react": "npm:types-react@rc",
 		"@types/react-dom": "npm:types-react-dom@rc"
-	}
+	},
+	"author": {
+		"name": "Vladislav",
+		"email": "medievalrain@gmail.com"
+	},
+	"maintainers": [
+		"medievalrain@gmail.com"
+	]
 }
