@@ -47,6 +47,28 @@ export const CharactersGuess = ({ isError, kana }: { isError: number; kana?: str
 				x: 1,
 			});
 		};
+
+		const animateFromSameValue = async () => {
+			animationControls.set({
+				opacity: 0,
+				x: 50,
+			});
+			await animationControls.start({
+				opacity: 1,
+				scale: 1,
+				transition: {
+					duration: 0.1,
+					ease: "easeInOut",
+				},
+				x: 1,
+			});
+		};
+
+		if (kana === displayKana) {
+			animateFromSameValue();
+			return;
+		}
+
 		if (!displayKana && kana) {
 			setDisplayKana(kana);
 		} else {

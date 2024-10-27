@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
@@ -65,8 +65,8 @@ const getSelectedKanas = (selectedColumns: Record<KanaType, boolean[]>) => [
 	...getSelectedTableKanas(selectedColumns["katakana-combos"], katakanaComboTable),
 ];
 
-const getCharacterToGuess = (selectedKanas: string[], learningState: CharacterState[]) => {
-	const selectedLearningState = learningState.filter(({ kana }) => selectedKanas.includes(kana));
+const getCharacterToGuess = (selectedKanas: string[], learningState: CharacterState[], lastGuessedCharacter: null | string) => {
+	const selectedLearningState = learningState.filter(({ kana }) => selectedKanas.includes(kana) && kana !== lastGuessedCharacter);
 	return getWeightedCharacter(selectedLearningState);
 };
 
@@ -77,7 +77,10 @@ export const GuessContainer = () => {
 	const [learningState, setLearningState] = useAtom(learningStateAtom);
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = useMemo(() => getSelectedKanas(selectedColumns), [selectedColumns]);
-	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
+	const lastGuessedCharacterRef = useRef<null | string>(null);
+	const [characterToGuess, setCharacterToGuess] = useState(() =>
+		getCharacterToGuess(selectedKanas, learningState, lastGuessedCharacterRef.current)
+	);
 
 	const animationControls = useAnimation();
 
@@ -95,6 +98,7 @@ export const GuessContainer = () => {
 			setInputValue("");
 			setIsError(0);
 			setStats((v) => ({ ...v, correct: v.correct + 1 }));
+			lastGuessedCharacterRef.current = characterToGuess.kana;
 		} else if (characterToGuess.romaji.startsWith(newInputValue)) {
 			setInputValue(newInputValue);
 		} else {
@@ -111,7 +115,7 @@ export const GuessContainer = () => {
 
 	useEffect(() => {
 		if (!isError) {
-			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
+			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState, lastGuessedCharacterRef.current));
 		}
 	}, [animationControls, isError, learningState, selectedKanas]);
 
