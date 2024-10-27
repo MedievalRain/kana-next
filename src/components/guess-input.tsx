@@ -13,7 +13,7 @@ export const GuessInput = ({ disabled, setValue, value }: { disabled: boolean; s
 	return (
 		<input
 			autoComplete="off"
-			className="rounded-md border border-gray-300 bg-background-200  px-2 py-1 outline-none ring-0 ring-transparent transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-gray-300  disabled:border-transparent"
+			className="rounded-md border border-gray-300 bg-background-200 px-2  py-1 text-center outline-none ring-0 ring-transparent transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-gray-300  disabled:border-transparent"
 			disabled={disabled}
 			onChange={onChange}
 			type="text"
