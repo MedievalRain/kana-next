@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
@@ -78,11 +78,12 @@ export const GuessContainer = () => {
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = useMemo(() => getSelectedKanas(selectedColumns), [selectedColumns]);
 	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
+	const isErrorAnimationRef = useRef(false);
 
 	const animationControls = useAnimation();
 
 	const onInputChange = async (newInputValue: string) => {
-		if (!characterToGuess) {
+		if (!characterToGuess || isErrorAnimationRef.current) {
 			return;
 		}
 
@@ -106,7 +107,10 @@ export const GuessContainer = () => {
 			setInputValue("");
 			setStats((v) => ({ ...v, incorrect: v.incorrect + 1 }));
 			setIsError(true);
-
+			isErrorAnimationRef.current = true;
+			setTimeout(() => {
+				isErrorAnimationRef.current = false;
+			}, 500);
 			await animationControls.start({
 				transition: {
 					duration: 0.5,
