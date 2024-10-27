@@ -4,7 +4,7 @@ import { allCharactersKV, Character, hiraganaComboTable, hiraganaTable, KanaType
 import { CharacterState, learningStateAtom, selectedColumnsAtom } from "@/entities/characters-state";
 import { useAnimation } from "framer-motion";
 import { useAtom } from "jotai";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { prop, sortBy } from "remeda";
 
 import { CharactersGuess } from "./character-guess";
@@ -78,10 +78,7 @@ export const GuessContainer = () => {
 	const [selectedColumns] = useAtom(selectedColumnsAtom);
 	const selectedKanas = useMemo(() => getSelectedKanas(selectedColumns), [selectedColumns]);
 	const lastCharacterToGuess = useRef<(Character & CharacterState) | null>(null);
-	const characterToGuess = useMemo(
-		() => (isError ? lastCharacterToGuess.current : getCharacterToGuess(selectedKanas, learningState)),
-		[isError, learningState, selectedKanas]
-	);
+	const [characterToGuess, setCharacterToGuess] = useState(() => getCharacterToGuess(selectedKanas, learningState));
 
 	const animationControls = useAnimation();
 
@@ -123,6 +120,12 @@ export const GuessContainer = () => {
 			});
 		}
 	};
+
+	useEffect(() => {
+		if (!isError) {
+			setCharacterToGuess(getCharacterToGuess(selectedKanas, learningState));
+		}
+	}, [isError, learningState, selectedKanas]);
 
 	return (
 		<div className="flex flex-col items-center gap-2">
