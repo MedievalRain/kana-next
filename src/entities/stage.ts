@@ -1,5 +1,6 @@
 import { withImmer } from "jotai-immer";
 import { atomWithStorage } from "jotai/utils";
+import { shuffle } from "remeda";
 
 import type { Character, hiragana, katakana } from "./characters";
 
@@ -124,16 +125,11 @@ export const katakanaStages = [
 
 export const stages = [...hiraganaStages, ...katakanaStages] as const;
 
-type CharacterProgress = {
-	id: string;
-	progress: number;
-};
-
 type StageId = (typeof stages)[number]["id"];
 
-export const getStageInitialProgress = (stageId: StageId): CharacterProgress[] => {
+export const getStageInitialProgress = (stageId: StageId, repeats = 5): string[] => {
 	const stage = stages.find(({ id }) => id === stageId)!;
-	return stage.kanas.map((kana) => ({ id: kana, progress: 0 }));
+	return shuffle(stage.kanas.flatMap((kana) => Array(repeats).fill(kana)));
 };
 
 export const stageAtom = atomWithStorage<StageId>("learning-stage", "hiragana-vowels");
