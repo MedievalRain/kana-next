@@ -13,7 +13,8 @@ export const SidebarLink = ({ children, href }: Pick<ComponentProps<typeof Link>
 		<li>
 			<Link
 				className={cn("block rounded-lg px-4 py-2", {
-					"bg-[#C7CAD1] text-[#1a1d23] font-semibold": isActive,
+					"bg-[#C7CAD1] text-[#1a1d23] font-semibold ": isActive,
+					"hover:bg-[#C7CAD1]/10": !isActive,
 				})}
 				href={href}
 			>
