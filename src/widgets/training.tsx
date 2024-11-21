@@ -35,7 +35,7 @@ export const Training = () => {
 	const handleWrongAnswer = () => setProgress(getUpdatedProgressWithWrongAnswer(progress));
 
 	return (
-		<div>
+		<div className="flex justify-center">
 			{currentCharacter && (
 				<CharacterCard
 					acceptedAnswers={currentCharacter.acceptedAnswers}

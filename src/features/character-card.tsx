@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 type CharacterCardProp = {
@@ -12,7 +13,7 @@ type CharacterCardProp = {
 
 export const CharacterCard = ({ acceptedAnswers, backSide, frontSide, onCorrectAnswer, onWrongAnswer }: CharacterCardProp) => {
 	const [inputValue, setInputValue] = useState("");
-
+	const [disabled, setDisabled] = useState(false);
 	const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const cleanedValue = e.target.value.replace(/[^a-zA-Z\s]/g, "");
 		setInputValue(cleanedValue);
@@ -32,19 +33,20 @@ export const CharacterCard = ({ acceptedAnswers, backSide, frontSide, onCorrectA
 	};
 
 	return (
-		<div>
-			<div className="flex size-[128px] flex-col items-center justify-center rounded-md bg-[#C7CAD1] p-4">
-				<h2 className="text-5xl font-bold text-[#1a1d23]">{frontSide}</h2>
-			</div>
-			<label>
-				<input
-					autoComplete="off"
-					className="rounded-md border border-gray-300 bg-background-200 px-2 py-1 text-center outline-none ring-0 ring-transparent transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-gray-300  disabled:border-transparent"
-					onChange={onValueChange}
-					type="text"
-					value={inputValue}
-				/>
-			</label>
+		<div className="flex w-[384px] flex-col gap-8">
+			<AnimatePresence>
+				<motion.div className="flex h-[512px] flex-col items-center justify-center rounded-md bg-[#C7CAD1] p-4">
+					<h2 className="select-none text-9xl font-bold text-[#1a1d23]">{frontSide}</h2>
+				</motion.div>
+			</AnimatePresence>
+
+			<input
+				autoComplete="off"
+				className="rounded-md border border-gray-300 bg-background-200 px-2 py-1 text-center font-semibold outline-none ring-0 ring-transparent transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-gray-300  disabled:border-transparent"
+				onChange={onValueChange}
+				type="text"
+				value={inputValue}
+			/>
 		</div>
 	);
 };
