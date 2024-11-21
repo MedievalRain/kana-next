@@ -1,6 +1,6 @@
 import { withImmer } from "jotai-immer";
 import { atomWithStorage } from "jotai/utils";
-import { shuffle } from "remeda";
+import { isEmpty, shuffle } from "remeda";
 
 import type { Character, hiragana, katakana } from "./characters";
 
@@ -131,6 +131,14 @@ export const getStageInitialProgress = (stageId: StageId, repeats = 5): string[]
 	const stage = stages.find(({ id }) => id === stageId)!;
 	return shuffle(stage.kanas.flatMap((kana) => Array(repeats).fill(kana)));
 };
+
+export const getUpdatedProgressWithWrongAnswer = (progress: string[]) => {
+	if (isEmpty(progress)) return progress;
+	const [first, ...rest] = progress;
+	return [...rest, first];
+};
+
+export const getUpdatedProgressWithCorrectAnswer = (progress: string[]) => progress.slice(1);
 
 export const stageAtom = atomWithStorage<StageId>("learning-stage", "hiragana-vowels");
 
