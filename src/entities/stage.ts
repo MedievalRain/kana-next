@@ -136,6 +136,6 @@ export const getStageInitialProgress = (stageId: StageId): CharacterProgress[] =
 	return stage.kanas.map((kana) => ({ id: kana, progress: 0 }));
 };
 
-export const stageAtom = withImmer(atomWithStorage<StageId>("learning-stage", "hiragana-vowels"));
+export const stageAtom = atomWithStorage<StageId>("learning-stage", "hiragana-vowels");
 
 export const stageProgress = withImmer(atomWithStorage("stage-progress", getStageInitialProgress("hiragana-vowels")));
