@@ -142,4 +142,4 @@ export const getUpdatedProgressWithCorrectAnswer = (progress: string[]) => progr
 
 export const stageAtom = atomWithStorage<StageId>("learning-stage", "hiragana-vowels");
 
-export const stageProgress = withImmer(atomWithStorage("stage-progress", getStageInitialProgress("hiragana-vowels")));
+export const progressAtom = withImmer(atomWithStorage("stage-progress", getStageInitialProgress("hiragana-vowels")));
