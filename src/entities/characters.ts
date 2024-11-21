@@ -224,3 +224,5 @@ export const katakana = [
 
 export const allCharacters = [...hiragana, ...katakana];
 export const allCharactersKV = indexBy(allCharacters, ({ kana }) => kana);
+
+export type CharacterId = (typeof allCharacters)[number]["kana"];

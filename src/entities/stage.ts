@@ -1,8 +1,8 @@
 import { withImmer } from "jotai-immer";
 import { atomWithStorage } from "jotai/utils";
-import { isEmpty, shuffle } from "remeda";
+import { identity, isEmpty, nthBy, shuffle } from "remeda";
 
-import type { Character, hiragana, katakana } from "./characters";
+import type { Character, CharacterId, hiragana, katakana } from "./characters";
 
 export type Stage<T extends Character[]> = Readonly<{
 	id: string;
@@ -127,19 +127,31 @@ export const stages = [...hiraganaStages, ...katakanaStages] as const;
 
 type StageId = (typeof stages)[number]["id"];
 
-export const getStageInitialProgress = (stageId: StageId, repeats = 5): string[] => {
-	const stage = stages.find(({ id }) => id === stageId)!;
-	return shuffle(stage.kanas.flatMap((kana) => Array(repeats).fill(kana)));
+export const getStagesInitialProgress = (stageIds: StageId[], repeats = 5): CharacterId[] => {
+	return stages.reduce<CharacterId[]>((acc, stage) => {
+		if (!stageIds.includes(stage.id)) {
+			return acc;
+		}
+		return acc.concat(shuffle(stage.kanas.flatMap((kana) => Array(repeats).fill(kana))));
+	}, []);
 };
 
-export const getUpdatedProgressWithWrongAnswer = (progress: string[]) => {
+export const getUpdatedProgressWithWrongAnswer = (progress: CharacterId[]) => {
 	if (isEmpty(progress)) return progress;
 	const [first, ...rest] = progress;
 	return [...rest, first];
 };
 
-export const getUpdatedProgressWithCorrectAnswer = (progress: string[]) => progress.slice(1);
+export const getNextStage = (currentStageId?: StageId) => {
+	if (!currentStageId) {
+		return stages[0];
+	}
+	const passedStage = nthBy(stages, 2, identity());
+	return passedStage || null;
+};
 
-export const stageAtom = atomWithStorage<StageId>("learning-stage", "hiragana-vowels");
+export const getUpdatedProgressWithCorrectAnswer = (progress: CharacterId[]) => progress.slice(1);
 
-export const progressAtom = withImmer(atomWithStorage("stage-progress", getStageInitialProgress("hiragana-vowels")));
+export const currentStagesAtom = atomWithStorage<StageId[]>("learning-stage", ["hiragana-vowels"]);
+
+export const progressAtom = withImmer(atomWithStorage<CharacterId[]>("stage-progress", getStagesInitialProgress(["hiragana-vowels"])));
