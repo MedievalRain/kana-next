@@ -1,28 +1,27 @@
 import type { Metadata } from "next";
 
-import { Footer } from "@/components/footer";
-
 import "./globals.css";
 
-import { cn } from "@/utils/cn";
+import type { PropsWithChildren } from "react";
+
+import { cn } from "@/shared/utils/cn";
+import { MainLayout } from "@/widgets/main-layout";
 import { Nunito } from "next/font/google";
 
-export const metadata: Metadata = {
-	description: "Train Hiragana and Katakana",
-	title: "KanaNext",
-};
-const nunito = Nunito({ display: "block", preload: false });
+const nunito = Nunito({
+	subsets: ["latin"],
+});
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export const metadata: Metadata = {
+	description: "Learn Hiragana and Katakana",
+	title: "Kana Next",
+};
+
+export default function RootLayout({ children }: PropsWithChildren) {
 	return (
-		<html>
-			<body className={cn(nunito.className, "antialiased bg-background-100 selection:bg-[#42b4ff4d] text-[#C7CAD1] pt-10 md:pt-12 pb-4 md:pb-6")}>
-				{children}
-				<Footer />
+		<html lang="en">
+			<body className={cn(nunito.className, "antialiased selection:bg-[#42b4ff4d] text-[#C7CAD1]")}>
+				<MainLayout>{children}</MainLayout>
 			</body>
 		</html>
 	);
