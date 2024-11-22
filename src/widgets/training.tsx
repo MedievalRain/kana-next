@@ -34,8 +34,29 @@ export const Training = () => {
 	const handleCorrectAnswer = () => setProgress(getUpdatedProgressWithCorrectAnswer(progress));
 	const handleWrongAnswer = () => setProgress(getUpdatedProgressWithWrongAnswer(progress));
 
+	const characters = progress.slice(0, 10);
 	return (
 		<div className="flex justify-center">
+			<ul className="relative">
+				{characters.map((kana, index) => {
+					const character = allCharactersKV[kana];
+					if (!character) {
+						return null;
+					}
+					return (
+						<li className={"absolute"} key={index} style={{ top: index * 1.5 }}>
+							<CharacterCard
+								acceptedAnswers={character.acceptedAnswers}
+								backSide={character.romaji}
+								frontSide={character.kana}
+								isFront={index === 0}
+								onCorrectAnswer={handleCorrectAnswer}
+								onWrongAnswer={handleWrongAnswer}
+							/>
+						</li>
+					);
+				})}
+			</ul>
 			{currentCharacter && (
 				<CharacterCard
 					acceptedAnswers={currentCharacter.acceptedAnswers}
